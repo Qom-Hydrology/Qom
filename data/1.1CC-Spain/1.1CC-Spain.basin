@@ -1,25 +1,31 @@
-﻿BASIN (algoritm AbYYS reg. 1463 of study)
-file pertaining to the problem Simple Model of Losses and Excesses(SMLE)
+﻿BASIN
+file pertaining to the Qom problem
 -------------------------------------------------------------------
-Description: Cuenca Asua, Bizkaia, Spain period 20070205 to 20070810
-Shape: FAST 1
-Area_(km2): 50.89
-pervious: 0.97
-concentration_time_(hour): 24
+Description: Cuenca Asua, Bizkaia, Spain period 20070205 to 20070810, step 24h
+Shape: FAST 2.5
+Area_(km2): 63
+pervious: 0.98
+concentration_time_(hour): 25.0
 Date_Time_Ini_(yyyy/MM/dd_hh:mm:00_tt): 2007/02/05 09:00:00 a.m.
 Date_Time_Fin_(yyyy/MM/dd_hh:mm:00_tt): 2007/08/10 09:00:00 a.m.
 Δt_(hours): 24
 Reg_Ini: 1
 Reg_End: 187
+Superficial_Storage_to_start_considering_runoff_ (0.0 to 1.0): 1
+Limits_to_increase_the_peaks_flow in mm (0 to 1): 0.0
+Coefficient_to_increase_the_peaks_flow: 0
+Relationship between evaporation and soil moisture: 0
+Added direct infiltration: 0
 Percolation_is_base_flow?(True/False): TRUE
 Qi_(m3/s): 0.0
-Qp_(m3/s): 0.0
-Qg_(m3/s): 0.26
-Ro_(mm): 0.0
-So_(mm): 4.0
-Rmax_(mm): 8 7.7
-Smax_(mm): 33 14.54
-pc_(mm/h): 2.5 2.6
-Ki(h): 5 21.9
-Kp(h): 20 22.5
-Kg(h): 100 97555
+Qp_(m3/s): 0.3
+Qg_(m3/s): 0.05
+Ro_(mm): 2
+So_(mm): 15 75
+Rmax_(mm):  20
+Smax_(mm): 111
+VC_(mm/h): 0.02
+Ki(h): 50
+Kp(h): 23
+Kg(h): 8000
+Eq: 2.71
