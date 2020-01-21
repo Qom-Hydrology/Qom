@@ -6,12 +6,17 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
- * Class representing problem Qom Simple hydrological model for the calculation of losses and
- * excesses
+ * Class representing problem Qom
+ * Simple hydrological model for the calculation of losses and excesses
  */
-public class QomExe {
+public class Qom {
 
-  /** Qom is a Hydrological Model Rainfall-Runoff Gustavo R. Zavala Antonio J. Nebro. */
+  /**
+   * Qom
+   * is a Hydrological Model Rainfall-Runoff
+   * Gustavo R. Zavala
+   * Antonio J. Nebro.
+   */
   public static String QomVer_ = "V2.1 (2019/12/26)";
   // selected objetive functions
   public static String folder_;
@@ -56,7 +61,7 @@ public class QomExe {
   public static double Superficial_Storage_to_start_considering_runoff_ = 0.0;
   public static int ratio_between_evaporation_and_soil_moisture_ = 0;
 
-  // conditions wet initial
+  //conditions wet initial
   public static double Ri_1_;
   public static double Si_1_;
   public static double Di_1_;
@@ -80,18 +85,16 @@ public class QomExe {
   public static double OutputSuperficial_;
   public static double MassBalance_;
   public static double MassBalanceError_;
-  public static double Qpo_; // maximum streamflow for hydrograph observaded
-  public static double QPc_; // maximum streamflow for hydrograph calculated
-  public static double
-      QPic_; // maximum streamflow for hydrograph calculated in impervious superfitial soil
-  public static double
-      QPpc_; // maximum streamflow for hydrograph calculated in pervious superfitial soil
-  public static double QPgc_; // maximum streamflow for hydrograph calculated in growndwater
-  public static double Qmo_; // minimum streamflow for hydrograph observaded
-  public static double Qmc_; // minimum streamflow for hydrograph calculated
-  public static double VHo_; // volume for hydrograph observaded
-  public static double VHc_; // volume for hydrograph calculated
-  public static double maxO_; // maximum observed steamflow
+  public static double Qpo_;// maximum streamflow for hydrograph observaded
+  public static double QPc_;// maximum streamflow for hydrograph calculated
+  public static double QPic_;// maximum streamflow for hydrograph calculated in impervious superfitial soil
+  public static double QPpc_;// maximum streamflow for hydrograph calculated in pervious superfitial soil
+  public static double QPgc_;// maximum streamflow for hydrograph calculated in growndwater
+  public static double Qmo_;// minimum streamflow for hydrograph observaded
+  public static double Qmc_;// minimum streamflow for hydrograph calculated
+  public static double VHo_;// volume for hydrograph observaded
+  public static double VHc_;// volume for hydrograph calculated
+  public static double maxO_;// maximum observed steamflow
 
   public static String optOF_ = "";
 
@@ -309,10 +312,7 @@ public class QomExe {
   // sorted observed stramflow for duration curve
   public static Double[] QoD_;
   public static Double[] QfD_;
-  public static double[] DurationT_ = {
-    0.0, 0.05, 0.1, 0.2, 0.3, 0.5, 0.8, 1.0, 3.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0, 35.0, 40.0,
-    45.0, 50.0, 55.0, 60.0, 65.0, 70.0, 75.0, 80.0, 85.0, 90.0, 95.0, 100.0
-  };
+  public static double[] DurationT_ = {0.0, 0.05, 0.1, 0.2, 0.3, 0.5, 0.8, 1.0, 3.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0, 50.0, 55.0, 60.0, 65.0, 70.0, 75.0, 80.0, 85.0, 90.0, 95.0, 100.0};
   public static int DurationSeg_ = DurationT_.length;
   public static java.lang.Double[] DurationQo_ = new java.lang.Double[DurationSeg_];
   public static java.lang.Double[] DurationQe_ = new java.lang.Double[DurationSeg_];
@@ -331,20 +331,19 @@ public class QomExe {
   public static double peakQT_ = 0;
 
   // colores
-  public static String black_ = "\033[30m";
-  public static String red_ = "\033[31m";
-  public static String green_ = "\033[32m";
-  public static String yellow_ = "\033[33m";
-  public static String blue_ = "\033[34m";
-  public static String purple_ = "\033[35m";
-  public static String cyan_ = "\033[36m";
-  public static String white_ = "\033[37m";
-  public static String reset_ = "\u001B[0m";
+  public static String black_="\033[30m";
+  public static String red_="\033[31m";
+  public static String green_="\033[32m";
+  public static String yellow_="\033[33m";
+  public static String blue_="\033[34m";
+  public static String purple_="\033[35m";
+  public static String cyan_="\033[36m";
+  public static String white_="\033[37m";
+  public static String reset_="\u001B[0m";
 
-  public static void main(String[] args) throws IOException { // name of class and problem
+  public static void main(String[] args) throws IOException {       // name of class and problem
 
-    BufferedReader br =
-        new BufferedReader(new InputStreamReader(System.in)); // Ya tenemos el "lector"
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); //Ya tenemos el "lector"
 
     peakPindx_ = 0;
     peakPindxQ_ = 0;
@@ -356,7 +355,7 @@ public class QomExe {
     peakQV_ = 0;
     peakQT_ = 0;
 
-    System.out.println(green_ + "Qom a Rainfall Hydrologic Model (" + QomVer_ + ")");
+    System.out.println(green_ + "Qom a Rainfall Hydrologic Model (" + QomVer_ + ")" );
     System.out.println("this is a simple model of losses and excesses" + reset_);
     System.out.println("Clark a Runoff Model");
     System.out.println("Qom-Clark a Rainfall-Runoff Model");
@@ -365,65 +364,66 @@ public class QomExe {
     System.out.println("");
     System.out.println(purple_ + "Pass 1. Reading files .." + reset_);
 
-    // args = new String[1];
-    // args[0]="e:/jmetal2016/1.1CC-Spain";
-    folder_ = "";
+    //args = new String[1];
+    //args[0]="e:/jmetal2016/1.1CC-Spain";
+    folder_="";
     if (args.length > 0) {
       // file_ = args[0];
       // file read
-      int j = 0;
-      for (int i = args[0].length() - 1; i >= 0; i--) {
-        char ch = args[0].charAt(i);
-        if (ch == '/') {
-          j = i + 1;
+      int j=0;
+      for(int i=args[0].length()-1;i>=0;i--){
+        char ch=args[0].charAt(i);
+        if(ch == '/'){
+          j=i+1;
           break;
         }
       }
       file_ = args[0].substring(j);
       folder_ = args[0].substring(0, j);
 
-      /*
-      test_ = 1;
-      getNumberOfVariables = 6;
-      getNumberOfObjectives = 2;
-      getNumberOfConstraints = 3;
-      selectedOF_ = new String[2];
-      textOF_="NSEO PBIAS";
-      selectedOF_[0] = "NSEO";
-      selectedOF_[1] = "PBIAS";
-       */
-    } else {
+            /*
+            test_ = 1;
+            getNumberOfVariables = 6;
+            getNumberOfObjectives = 2;
+            getNumberOfConstraints = 3;
+            selectedOF_ = new String[2];
+            textOF_="NSEO PBIAS";
+            selectedOF_[0] = "NSEO";
+            selectedOF_[1] = "PBIAS";
+             */
+    }
+    else {
       Qom_ReadProblems("Qom.txt");
     }
     // dataset read files
-    System.out.println("Problem file: " + folder_ + file_);
-    Qom_ReadFileBasin(folder_ + file_ + ".basin");
-    Qom_ReadLimitsVariable(folder_ + file_ + ".var");
-    Qom_ReadFileRain(folder_ + file_ + ".rain");
-    Qom_ReadFilePEVT(folder_ + file_ + ".pevt");
-    Qom_ReadFileQo(folder_ + file_ + ".Qo");
-    Qom_ReadFileHo(folder_ + file_ + ".Ho");
+    System.out.println("Problem file: " + folder_+ file_);
+    Qom_ReadFileBasin(folder_+ file_ + ".basin");
+    Qom_ReadLimitsVariable(folder_+ file_ + ".var");
+    Qom_ReadFileRain(folder_+file_ + ".rain");
+    Qom_ReadFilePEVT(folder_+ file_ + ".pevt");
+    Qom_ReadFileQo(folder_+ file_ + ".Qo");
+    Qom_ReadFileHo(folder_+ file_ + ".Ho");
 
     // problem data print
-    // System.out.println("Optimization multi-objective: ");
-    // System.out.println("  Number of objective function: " + getNumberOfObjectives);
-    // System.out.println("  " + textOF_);
-    // System.out.println("  Number of Variables: " + getNumberOfVariables);
-    // System.out.println("  Number of Constraints: " + getNumberOfConstraints);
+    //System.out.println("Optimization multi-objective: ");
+    //System.out.println("  Number of objective function: " + getNumberOfObjectives);
+    //System.out.println("  " + textOF_);
+    //System.out.println("  Number of Variables: " + getNumberOfVariables);
+    //System.out.println("  Number of Constraints: " + getNumberOfConstraints);
 
-    // System.out.println("Algorithm configuration: ");
+    //System.out.println("Algorithm configuration: ");
     // System.out.println("  Volumes hydrograph. O: " + VHo_ + " - C: " + VHc_ );
-    System.out.println(" Ro: " + Ro_);
-    System.out.println(" So: " + So_);
-    System.out.println(" Rmax: " + Rmax_);
-    System.out.println(" Smax: " + Smax_);
-    System.out.println(" VC: " + VC_);
-    System.out.println(" Ki: " + Ki_);
-    System.out.println(" Kp: " + Kp_);
-    System.out.println(" Kg: " + Kg_);
-    System.out.println(" CT: " + CT_);
-    System.out.println(" Shape : " + shape_);
-    System.out.println(" Eq : " + Eq_);
+    System.out.println(" Ro: "+Ro_);
+    System.out.println(" So: "+So_);
+    System.out.println(" Rmax: "+Rmax_);
+    System.out.println(" Smax: "+Smax_);
+    System.out.println(" VC: "+VC_);
+    System.out.println(" Ki: "+Ki_);
+    System.out.println(" Kp: "+Kp_);
+    System.out.println(" Kg: "+Kg_);
+    System.out.println(" CT: "+CT_);
+    System.out.println(" Shape : "+ shape_);
+    System.out.println(" Eq : "+Eq_);
 
     if (Ro_ > Rmax_ || So_ > Smax_) {
       System.out.println("Error: antecedent moisture conditions are greater than the");
@@ -443,8 +443,8 @@ public class QomExe {
     Qom_PrintArchSolutions();
 
     System.out.println(purple_ + "Done !." + reset_);
-    // System.out.println(purple_ + "Done !. [Enter] for finish" + reset_);
-    // String done = br.readLine();
+    //System.out.println(purple_ + "Done !. [Enter] for finish" + reset_);
+    //String done = br.readLine();
 
   } // end
 
@@ -464,22 +464,23 @@ public class QomExe {
     // constraint No 3: relative error for volume derived hydrograph
     // < at 25.0->0.25%
     // x [Hm3] * 1000.0 [mm/m] / Area[km2]
-    observedVolume = (VHo_ * 1000.0 / area_);
+    observedVolume =(VHo_ * 1000.0 / area_ );
 
-    if (Percolation_is_base_flow_ && true) {
-      // absoluteVolumeErr= (StoreOrOutput_Deep_ + OutputSuperficial_) - observedVolume;
-      absoluteVolumeErr = OutputSuperficial_ - observedVolume;
-    } else {
+    if(Percolation_is_base_flow_ && true){
+      //absoluteVolumeErr= (StoreOrOutput_Deep_ + OutputSuperficial_) - observedVolume;
       absoluteVolumeErr = OutputSuperficial_ - observedVolume;
     }
-    // absoluteVolumeErr = OutputSuperficial_ - observedVolume;
-    relativeVolumeErr = absoluteVolumeErr / observedVolume;
+    else{
+      absoluteVolumeErr = OutputSuperficial_ - observedVolume;
+    }
+    //absoluteVolumeErr = OutputSuperficial_ - observedVolume;
+    relativeVolumeErr = absoluteVolumeErr /observedVolume;
 
-    // error relativo del volumen genrardo por el hidrograma de Clark
+    //error relativo del volumen genrardo por el hidrograma de Clark
     double RE = 0.0;
-    if (VHo_ > 0.0) {
+    if(VHo_>0.0){
       RE = Math.abs((VHc_ - VHo_) / VHo_ * 100.0);
-    } else {
+    } else{
       RE = 1e25;
     }
 
@@ -488,11 +489,11 @@ public class QomExe {
       if (selectedOF_[i].equals("NSE")) {
         fx[i] = FunctionNSE(Qo_, Qc_);
       } else if (selectedOF_[i].equals("NSE-V")) {
-        // fx[i] = FunctionNSE(Vo_, Vc_);
+        //fx[i] = FunctionNSE(Vo_, Vc_);
       } else if (selectedOF_[i].equals("NSEO")) {
         fx[i] = FunctionNSEO(Qo_, Qc_);
       } else if (selectedOF_[i].equals("NSEO-V")) {
-        // fx[i] = FunctionNSEO(Vo_, Vc_);
+        //fx[i] = FunctionNSEO(Vo_, Vc_);
       } else if (selectedOF_[i].equals("R2")) {
         fx[i] = FunctionCDR2(Qo_, Qc_);
       } else if (selectedOF_[i].equals("MDV")) {
@@ -544,10 +545,12 @@ public class QomExe {
       }
 
       optOF_ += fx[i] + " ";
+
     }
     // END OBJETIVES FUNCTION
 
   } // evaluate
+
 
   public static void Qom_Calculus() {
 
@@ -559,19 +562,19 @@ public class QomExe {
     // previous storage
     Ri_1_ = Ro_;
     // lineal rate
-    // double z =  Ri_1_ / Rmax_;
-    // exponential rate
-    double z = 1 - Math.pow(Math.E, -Ri_1_ / (Rmax_ - Ri_1_));
+    //double z =  Ri_1_ / Rmax_;
+    //exponential rate
+    double z = 1-Math.pow(Math.E, -Ri_1_/(Rmax_- Ri_1_));
     double Sp = z * Smax_;
     Si_1_ = Math.max(Sp, So_);
 
     // lineal rate
-    // double z2 = Si_1_ / Smax_;
-    // exponential rate
-    double z2 = 1 - Math.pow(Math.E, -Si_1_ / (Smax_ - Si_1_));
+    //double z2 = Si_1_ / Smax_;
+    //exponential rate
+    double z2 = 1-Math.pow(Math.E, -Si_1_/(Smax_- Si_1_));
 
-    Dp_ = z2 * VC_ * Δt_; // potential percolation
-    Di_1_ = Math.min(Dp_, Si_1_);
+    Dp_ = z2 * VC_ * Δt_; //potential percolation
+    Di_1_ = Math.min(Dp_ , Si_1_);
 
     for (int i = 0; i < P_.length; i++) {
 
@@ -580,46 +583,51 @@ public class QomExe {
       D_[i] = Di_1_;
 
       // superfitial storage por rain
-      if (P_[i] >= (Rmax_ - R_[i])) {
+      if (P_[i] >= (Rmax_ - R_[i])){
         Superfitial_Storage_per_Rain_Excess(i);
-      } else {
+      }
+      else{
         Superfitial_Storage_per_Rain_Storage(i);
       }
 
       // potential evapotranspiration for water in superfitial storage
       if (R_[i] >= PEVT_[i]) {
         Superfitial_Losses_per_PEVT_Excess(i);
-      } else {
+      }
+      else {
         Superfitial_Losses_per_PEVT_Deficit(i);
       }
 
       // potential evapotranspiration for rain
       if (P_[i] >= PEVT_[i]) {
         Rain_Losses_per_PEVT_Excess(i);
-      } else {
+      }
+      else {
         Rain_Losses_per_PEVT_Deficit(i);
       }
 
-      if (pervious_ > 0.0) {
+      if(pervious_>0.0) {
         // soil storage for infiltration
         SoilStorage(i);
 
         // storage pur direct infiltration into soil
         if (Added_direct_infiltration_ > 0.0) {
           AddDirectInfiltrationExponential(i);
-          // AddDirectInfiltrationLinear(i);
+          //AddDirectInfiltrationLinear(i);
         }
 
         // deep flow in soil for percolation
         Percolation(i);
       }
       // soil evaporation
-      if (ratio_between_evaporation_and_soil_moisture_ == 0) {
+      if (ratio_between_evaporation_and_soil_moisture_== 0)
+      {
         // ratio lineal
-        Soil_Moisture_Loss_By_Evapotraspiration_Linear(i);
-      } else {
-        // ratio exponential
-        Soil_Moisture_Loss_By_Evapotraspiration_Exponential(i);
+        Soil_Moisture_Loss_By_Evapotraspiration_Linear( i);
+      }
+      else{
+        //ratio exponential
+        Soil_Moisture_Loss_By_Evapotraspiration_Exponential( i);
       }
 
       // separation of volumes
@@ -634,82 +642,95 @@ public class QomExe {
     Runoff();
 
     MoistureBalance();
+
   }
 
-  public static void Superfitial_Storage_per_Rain_Excess(int i) {
+  public static void Superfitial_Storage_per_Rain_Excess(int i)
+  {
     // rain is greater than the rest of the storage
-    P_[i] = P_[i] - (Rmax_ - R_[i]);
+    P_[i] = P_[i]-(Rmax_ - R_[i]);
     R_[i] = Rmax_;
   }
 
-  public static void Superfitial_Storage_per_Rain_Storage(int i) { // rain is less than the storage
-    R_[i] += P_[i];
+  public static void Superfitial_Storage_per_Rain_Storage(int i)
+  {      // rain is less than the storage
+    R_[i] +=  P_[i];
     P_[i] = 0.0;
   }
-
-  public static void Superfitial_Losses_per_PEVT_Excess(int i) {
+  public static void Superfitial_Losses_per_PEVT_Excess(int i)
+  {
     R_[i] -= PEVT_[i];
     EVT_[i] = PEVT_[i];
-    PEVT_[i] = 0.0;
+    PEVT_[i]=0.0;
   }
 
-  public static void Superfitial_Losses_per_PEVT_Deficit(int i) {
+  public static void Superfitial_Losses_per_PEVT_Deficit(int i)
+  {
     PEVT_[i] -= R_[i];
     EVT_[i] = R_[i];
     R_[i] = 0.0;
   }
 
-  public static void Rain_Losses_per_PEVT_Deficit(int i) {
+  public static void Rain_Losses_per_PEVT_Deficit(int i)
+  {
     PEVT_[i] -= P_[i];
     EVT_[i] += P_[i];
     P_[i] = 0.0;
   }
 
-  public static void Rain_Losses_per_PEVT_Excess(int i) {
+  public static void Rain_Losses_per_PEVT_Excess(int i)
+  {
     // is P >= PEPT
     P_[i] -= PEVT_[i];
     EVT_[i] += PEVT_[i];
     PEVT_[i] = 0.0;
   }
 
-  public static void SoilStorage(int i) {
+  public static void SoilStorage(int i)
+  {
     // lineal rate
-    // double z =  R_[i] / Rmax_;
+    //double z =  R_[i] / Rmax_;
 
-    // exponential rate
-    if (R_[i] > 0.0) {
-      double aux = R_[i] / (Rmax_ - R_[i]);
-      double z = 1 - Math.pow(Math.E, -aux);
+    //exponential rate
+    if (R_[i]>0.0)
+    {
+      double aux = R_[i]/(Rmax_-R_[i]);
+      double z = 1-Math.pow(Math.E, -aux);
       double Sp = z * Smax_;
       double Saux = Math.max(S_[i], Sp);
       double ΔS = Math.max(Saux - S_[i], 0.0);
 
-      if (Saux + ΔS > Smax_) ΔS = Smax_ - Saux;
+      if (Saux + ΔS >  Smax_) ΔS = Smax_- Saux;
 
-      if (R_[i] - ΔS > 0.0) {
+      if (R_[i] - ΔS  > 0.0)
+      {
         R_[i] -= ΔS;
         S_[i] = Math.min(S_[i] + ΔS, Smax_);
         ΔS = 0.0;
-      } else {
-        S_[i] = Math.min(S_[i] + R_[i], Smax_);
+      }
+      else
+      {
+        S_[i] = Math.min(S_[i]+R_[i], Smax_);
         ΔS = Math.max(ΔS - R_[i], 0.0);
         R_[i] = 0.0;
-        // ΔS = Math.max(Smax_-S_[i], 0.0);
+        //ΔS = Math.max(Smax_-S_[i], 0.0);
       }
     }
   }
 
-  public static void AddDirectInfiltrationExponential(int i) {
 
-    if (P_[i] > 0.0 && S_[i] < Smax_) {
+  public static void AddDirectInfiltrationExponential(int i){
+
+    if (P_[i]  > 0.0 && S_[i] < Smax_)
+    {
       double ΔS = Smax_ - S_[i];
-      double aux = S_[i] / (Smax_ - S_[i]);
+      double aux = S_[i]/(Smax_ - S_[i]);
       double z = Math.pow(Math.E, -aux);
-      double ΔP1 = P_[i] * z;
+      double ΔP1 = P_[i] * z ;
       double ΔP2 = P_[i] * Added_direct_infiltration_;
       double ΔP = Math.max(ΔP1, ΔP2);
 
-      if (ΔP - ΔS > 0.0) {
+      if ( ΔP - ΔS > 0.0) {
         P_[i] -= ΔS;
         S_[i] = Math.min(S_[i] + ΔS, Smax_);
       } else {
@@ -719,17 +740,18 @@ public class QomExe {
     }
   }
 
-  public static void AddDirectInfiltrationExponentialBAK(int i) {
+  public static void AddDirectInfiltrationExponentialBAK(int i){
 
-    if (P_[i] > 0.0 && S_[i] < Smax_) {
+    if (P_[i]  > 0.0 && S_[i] < Smax_)
+    {
       double ΔS = Smax_ - S_[i];
-      double aux = S_[i] / (Smax_ - S_[i]);
+      double aux = S_[i]/(Smax_ - S_[i]);
       double z = Math.pow(Math.E, -aux);
-      double ΔP1 = P_[i] * z;
+      double ΔP1 = P_[i] * z ;
       double ΔP2 = P_[i] * Added_direct_infiltration_;
       double ΔP = Math.max(ΔP1, ΔP2);
 
-      if (ΔP - ΔS > 0.0) {
+      if ( ΔP - ΔS > 0.0) {
         P_[i] -= ΔS;
         S_[i] = Math.min(S_[i] + ΔS, Smax_);
       } else {
@@ -739,32 +761,34 @@ public class QomExe {
     }
   }
 
-  public static void AddDirectInfiltrationLinear(int i) {
+  public static void AddDirectInfiltrationLinear(int i){
 
-    if (P_[i] > 0.0 && S_[i] < Smax_) {
-      double ΔS = Smax_ - S_[i];
+    if (P_[i]  > 0.0 && S_[i]<Smax_)
+    {
+      double ΔS = Smax_-S_[i];
       if (P_[i] * Added_direct_infiltration_ - ΔS > 0.0) {
         P_[i] -= ΔS;
         S_[i] = Math.min(S_[i] + ΔS, Smax_);
-        ΔS = 0.0;
+        ΔS =0.0;
       } else {
         double aux;
         aux = P_[i] * Added_direct_infiltration_;
         S_[i] = Math.min(S_[i] + aux, Smax_);
-        P_[i] = Math.max(P_[i] - aux, 0.0);
+        P_[i] = Math.max(P_[i] - aux,0.0);
         ΔS -= aux;
       }
     }
   }
 
+
   public static void Percolation(int i) {
 
     if (i > 0) {
-      // exponential rate
+      //exponential rate
       double aux = S_[i] / (Smax_ - S_[i]);
-      double z = 1 - Math.exp(-aux); // ratio lineal Math.pow(2.7182,-aux)
-      // double z = S_[i] / Smax_;
-      Dp_ = z * VC_ * Δt_; // potential percolation
+      double z = 1 - Math.exp(-aux);      //ratio lineal Math.pow(2.7182,-aux)
+      //double z = S_[i] / Smax_;
+      Dp_ = z * VC_ * Δt_; //potential percolation
 
       if (S_[i] > Dp_) {
         D_[i] = Dp_;
@@ -776,32 +800,34 @@ public class QomExe {
     }
   }
 
+
   public static void Soil_Moisture_Loss_By_Evapotraspiration_Exponential(int i) {
     // curve relationship between EVT and soil moisture
 
     if (PEVT_[i] > 0.0 && S_[i] > 0.0) {
 
-      double aux = 0.0;
+      double aux=0.0;
       double z = 0.0;
 
       if (PEVT_[i] > 0.0 && S_[i] > 0.0) {
         if (PEVT_[i] > S_[i])
           // soil moisture is less than the evapotranspiration or
           aux = S_[i] / (PEVT_[i] - S_[i]);
-      } else {
+      }
+      else {
         aux = PEVT_[i] / (S_[i] - PEVT_[i]);
       }
-      z = 1 - Math.pow(2.7182, -aux); // 4*2.7182
-      double ev = Math.max(z, 0.0);
+      z = 1-Math.pow(2.7182, -aux); //4*2.7182
+      double ev =   Math.max(z, 0.0);
       PEVT_[i] -= ev;
       EVT_[i] += ev;
-      S_[i] = Math.max(S_[i] - ev, 0.0);
+      S_[i] = Math.max(S_[i] - ev,0.0);
     }
   }
 
   public static void Soil_Moisture_Loss_By_Evapotraspiration_Linear(int i) {
 
-    if (PEVT_[i] > 0.0 && S_[i] > 0.0 && R_[i] == 0.0) {
+    if (PEVT_[i] > 0.0 && S_[i] > 0.0 && R_[i]==0.0) {
       if (PEVT_[i] > S_[i]) {
         // soil moisture is less than the evapotranspiration
         PEVT_[i] = Math.max(PEVT_[i] - S_[i], 0.0);
@@ -819,16 +845,14 @@ public class QomExe {
   public static void SeparationVolumes(int i) {
 
     // water volume in impervious area
-    double runoffPervious = 0.0;
-    double runoffImpervious = 0.0;
+    double runoffPervious=0.0;
+    double runoffImpervious=0.0;
     double excess = 0.0;
 
-    if (R_[i]
-        > Superficial_Storage_to_start_considering_runoff_
-            * Rmax_) { // && (1.0 - Superficial_Storage_to_start_considering_runoff_) > 0.0
+    if(R_[i] > Superficial_Storage_to_start_considering_runoff_ * Rmax_ ) { //&& (1.0 - Superficial_Storage_to_start_considering_runoff_) > 0.0
       runoffPervious = pervious_;
-      runoffImpervious = 1.0 - pervious_;
-      excess = Math.max((R_[i] - Superficial_Storage_to_start_considering_runoff_ * Rmax_), 0.0);
+      runoffImpervious = 1.0-pervious_;
+      excess = Math.max((R_[i] -  Superficial_Storage_to_start_considering_runoff_ * Rmax_), 0.0);
     }
 
     RunoffR_[i] = excess;
@@ -839,57 +863,63 @@ public class QomExe {
     // deep groudwater volume
     Vg_[i] = D_[i];
 
-    // R_[i] = Math.max(R_[i]-RunoffR_[i], 0);
-    R_[i] = R_[i] - RunoffR_[i];
-    // P_[i] += Math.min(RunoffR_[i], Pconst_[i]-RunoffR_[i]);
+    //R_[i] = Math.max(R_[i]-RunoffR_[i], 0);
+    R_[i] =R_[i]-RunoffR_[i];
+    //P_[i] += Math.min(RunoffR_[i], Pconst_[i]-RunoffR_[i]);
     P_[i] += RunoffR_[i];
+
   }
 
   public static void Runoff() {
     // surface spatial distribution coefficient applied to surface runoff volumes
-    Vis_ = SyntheticHistogramArea(shape_, CT_, Δt_, Vi_);
-    Vps_ = SyntheticHistogramArea(shape_, CT_, Δt_, Vp_);
-    if (Percolation_is_base_flow_) {
-      Vgs_ = SyntheticHistogramArea(shape_, CT_, Δt_, Vg_);
+    Vis_=SyntheticHistogramArea(shape_, CT_, Δt_, Vi_);
+    Vps_=SyntheticHistogramArea(shape_, CT_, Δt_, Vp_);
+    if (Percolation_is_base_flow_)
+    {
+      Vgs_=SyntheticHistogramArea(shape_, CT_, Δt_, Vg_);
     }
 
     // overlandwater flux
-    Qis_ = SimpleLinearReservoir(area_, Vis_, Ki_, Δt_, Qoi_);
+    Qis_=SimpleLinearReservoir(area_, Vis_, Ki_, Δt_, Qoi_);
 
-    // groundwater layer
-    Qps_ = SimpleLinearReservoir(area_, Vps_, Kp_, Δt_, Qop_);
+    //groundwater layer
+    Qps_=SimpleLinearReservoir(area_, Vps_, Kp_, Δt_, Qop_);
 
     // deep water flow for the groundwater
-    if (Percolation_is_base_flow_) {
-      Qgs_ = SimpleLinearReservoir(area_, Vgs_, Kg_, Δt_, Qog_);
+    if (Percolation_is_base_flow_)
+    {
+      Qgs_=SimpleLinearReservoir(area_, Vgs_, Kg_, Δt_, Qog_);
     }
     // total flux spread calculated
-    for (int i = 0; i < Qis_.length; i++) {
+    for (int i = 0; i < Qis_.length; i++)
+    {
       Qc_[i] = Qis_[i] + Qps_[i] + Qgs_[i];
     }
 
-    Vo_ = VolumeOfHydrograph(Qo_);
-    Vc_ = VolumeOfHydrograph(Qc_);
+    Vo_=VolumeOfHydrograph(Qo_);
+    Vc_=VolumeOfHydrograph(Qc_);
   }
 
-  public static void MoistureBalance() {
-    Input_ = 0.0;
-    Evapotraspiration_ = 0.0;
-    sumVi_ = 0.0;
-    sumVp_ = 0.0;
-    sumVg_ = 0.0;
-    sumRunoffR_ = 0.0;
-    sumVixArea_ = 0.0;
-    sumVpxArea_ = 0.0;
-    sumVgxArea_ = 0.0;
-    int numReg = Pconst_.length;
-    for (int i = 0; i < numReg; i++) {
-      Input_ += Pconst_[i];
+  public static void MoistureBalance()
+  {
+    Input_=0.0;
+    Evapotraspiration_=0.0;
+    sumVi_=0.0;
+    sumVp_=0.0;
+    sumVg_=0.0;
+    sumRunoffR_=0.0;
+    sumVixArea_=0.0;
+    sumVpxArea_=0.0;
+    sumVgxArea_=0.0;
+    int numReg=Pconst_.length;
+    for(int i=0;i<numReg;i++)
+    {
+      Input_+=Pconst_[i];
       Evapotraspiration_ += EVT_[i];
-      sumVi_ += Vi_[i];
-      sumVp_ += Vp_[i];
-      sumVg_ += Vg_[i];
-      sumRunoffR_ += RunoffR_[i];
+      sumVi_+=Vi_[i];
+      sumVp_+=Vp_[i];
+      sumVg_+=Vg_[i];
+      sumRunoffR_+=RunoffR_[i];
     }
     // m3 = 1[mm] * 1[m]/1.000[mm] * Area[Km2] * 1.000.000[m2]/1[km2]
     // Hm3 = V[mm] * 1[Hm]/100.000[mm] * Area[km2] * 100[Hm2]/1[km2]
@@ -897,29 +927,22 @@ public class QomExe {
     sumVpxArea_ = sumVp_ * area_ / 1000.0;
     sumVgxArea_ = sumVg_ * area_ / 1000.0;
 
-    SuperficialStore_ = R_[numReg - 1];
-    SoilStore_ = S_[numReg - 1];
+    SuperficialStore_ = R_[numReg-1];
+    SoilStore_ = S_[numReg-1];
     StoreOrOutput_Deep_ = sumVg_;
-    OutputSuperficial_ = sumVi_ + sumVp_; // + sumRunoffR_;
+    OutputSuperficial_ = sumVi_+ sumVp_;// + sumRunoffR_;
     // estimated - observed
-    MassBalance_ =
-        -So_
-            - Ro_
-            - Input_
-            + SuperficialStore_
-            + SoilStore_
-            + StoreOrOutput_Deep_
-            + OutputSuperficial_
-            + Evapotraspiration_;
+    MassBalance_ = -So_ -Ro_ -Input_ + SuperficialStore_ + SoilStore_ + StoreOrOutput_Deep_ + OutputSuperficial_ + Evapotraspiration_;
     // mass balance errors
     MassBalanceError_ = MassBalance_ / Input_ * 100;
   }
 
-  public double ShapeCoefficient(String shape) {
+  public double ShapeCoefficient(String shape)
+  {
     /// <summary>
     /// shape coefficient
     /// </summary>
-    double n = 1.0;
+    double n=1.0;
     try {
       // coeficient shape number
       // n is watershed response, if n is less than 1 quick, if n is greater than 1 is slow
@@ -941,16 +964,17 @@ public class QomExe {
       } else {
         System.out.println("Error: Shape Area Coefficient not recognized ( " + shape + " )");
         System.exit(1);
-      }
-      ;
-    } catch (Exception ex) {
+      };
+    }
+    catch (Exception ex) {
       System.out.println("Shape Area Coefficient - Error: " + ex.getMessage());
     }
 
     return n;
   }
 
-  public static double[] SyntheticHistogramArea(double n, double CT, double Δt, double[] V) {
+  public static double[] SyntheticHistogramArea(double n, double CT, double Δt, double[] V)
+  {
     /// <summary>
     /// shape coefficient number
     /// </summary>
@@ -978,30 +1002,37 @@ public class QomExe {
     int No;
 
     double[] Vs = new double[V.length];
-    try {
+    try
+    {
       // coeficient
-      // double a = Math.pow(0.5, (1.0 - n)); // de prueba
+      //double a = Math.pow(0.5, (1.0 - n)); // de prueba
       double a = Math.pow(0.5, n); // original
 
       // number division of cuenca
-      No = (int) (CT / Δt);
-      if (No < 1) {
+      No = (int)(CT / Δt);
+      if (No < 1)
+      {
         No = 1;
       }
 
       // determining the cumulative areas
       Ac = new double[No];
       double[] time = new double[No];
-      double dt = 1.0 / No;
-      for (int i = 0; i < No; i++) {
-        time[i] = (i + 1) * dt;
+      double dt = 1.0/No;
+      for(int i=0;i<No;i++)
+      {
+        time[i]=(i+1)*dt;
       }
       // t: is this unitary concentration time
       // 1/No: is this step of time
-      for (int i = 0; i < No; i++) {
-        if (time[i] <= 0.5) {
+      for(int i = 0; i<No;i++)
+      {
+        if (time[i] <= 0.5)
+        {
           Ac[i] = a * Math.pow(time[i], n);
-        } else {
+        }
+        else
+        {
           Ac[i] = 1.0 - a * Math.pow((1.0 - time[i]), n);
         }
       }
@@ -1009,7 +1040,8 @@ public class QomExe {
       // area between two consecutive cumulative areas
       f = new double[No];
       f[0] = Ac[0];
-      for (int i = 1; i < No; i++) {
+      for (int i = 1; i < No; i++)
+      {
         f[i] = Ac[i] - Ac[i - 1];
       }
 
@@ -1018,24 +1050,26 @@ public class QomExe {
       double fc = 0.0f;
 
       // runoff volume spread
-      for (int t = 0; t < V.length; t++) {
-        for (int i = 1; i <= t; i++) {
-          if (t - i < No) fc = f[t - i];
-          else fc = 0.0;
+      for (int t = 0; t < V.length; t++)
+      {
+        for (int i = 1; i <= t; i++)
+        {
+          if (t - i < No) fc = f[t - i]; else fc = 0.0;
           // ratio for spread and sum volume runoff imprevius
           Vs[t] += V[i] * fc;
           // Console.WriteLine("{0}({1},{2})={3}", t, i, t-i, Vs[t]);
         }
       }
-    } catch (Exception ex) {
+    }
+    catch (Exception ex) {
       System.out.println("SynteticHistogramAreas - Error: " + ex.getMessage());
     }
 
     return Vs;
   }
 
-  public static double[] SimpleLinearReservoir(
-      double Area, double[] Vs, double K, double Δt, double Qo) {
+  public static double[] SimpleLinearReservoir(double Area, double[] Vs, double K, double Δt, double Qo)
+  {
     /// spread flow undergoes a buffer pool of equivalent
     /// to a simple linear function.
     /// overland water using pervious and impervious areas and groundwater
@@ -1046,20 +1080,22 @@ public class QomExe {
     /// Qo: initial flux (m3/s)
     /// Qs: streamflow spread (m3/s)
 
-    double[] Qs = new double[Vs.length];
-    double peakQ = 0;
-    double peakV = 0;
+    double[] Qs = new double [Vs.length];
+    double peakQ=0;
+    double peakV=0;
     int count = 0;
     double coefExp = 1.0;
 
-    try {
-      Qs[0] = Qo;
+    try
+    {
+      Qs[0]=Qo;
 
-      // conversion mm/h to m3/s for area catchement
+      //conversion mm/h to m3/s for area catchement
       // streamflow [m3/s] = V[mm/h] * 1[h/3600s] * 1000000[m2/km2] * Area[Km2] * 1[m/1000mm]
       Double coefConvert = area_ * 1.0 / 3.6 / Δt_;
 
-      if (K > 0.0) {
+      if (K > 0.0)
+      {
         Qs[0] = Qs[0] + (Vs[0] * coefConvert * (1.0f - Math.pow(Eq_, (-Δt / K))));
 
         for (int i = 1; i < Vs.length; i++) {
@@ -1073,42 +1109,42 @@ public class QomExe {
           // de caudales importantes.
           // NUEVO fin ------------
 
-          if (Coefficient_to_increase_the_peaks_flow_ == 0.0) {
-            Qs[i] =
-                Qs[i - 1] * Math.pow(Eq_, (-Δt / K))
-                    + Vs[i] * coefConvert * (1.f - Math.pow(Eq_, (-Δt / K)));
-          } else {
+
+          if (Coefficient_to_increase_the_peaks_flow_ ==  0.0)
+          {
+            Qs[i] = Qs[i - 1] * Math.pow(Eq_, (-Δt / K)) + Vs[i] * coefConvert * (1.f - Math.pow(Eq_, (-Δt / K)));
+          }
+          else {
             double deltaT = 0;
             peakV = 0.0;
             count = 0;
             for (int j = i; j > 0; j--) {
               peakV += Pconst_[j];
-              if (count * Δt <= 24.0) { // Pconst_[j] == 0 ||
+              if (count * Δt <= 24.0) { //Pconst_[j] == 0 ||
                 count++;
               } else {
                 break;
               }
             }
-            if (peakV >= Limits_to_increase_the_peaks_flow_) {
-              coefExp = Eq_ * Coefficient_to_increase_the_peaks_flow_; // Math.E();
-              Qs[i] =
-                  Qs[i - 1] * Math.pow(Eq_, (-Δt / K))
-                      + Vs[i] * coefConvert * (1.f - Math.pow(coefExp, (-Δt / K)));
-            } else
-              Qs[i] =
-                  Qs[i - 1] * Math.pow(Eq_, (-Δt / K))
-                      + Vs[i] * coefConvert * (1.f - Math.pow(Eq_, (-Δt / K)));
+            if (peakV >= Limits_to_increase_the_peaks_flow_ ) {
+              coefExp = Eq_ * Coefficient_to_increase_the_peaks_flow_; //Math.E();
+              Qs[i] = Qs[i - 1] * Math.pow(Eq_, (-Δt / K)) + Vs[i] * coefConvert * (1.f - Math.pow(coefExp, (-Δt / K)));
+            }
+            else  Qs[i] = Qs[i - 1] * Math.pow(Eq_, (-Δt / K)) + Vs[i] * coefConvert * (1.f - Math.pow(Eq_, (-Δt / K)));
+
           }
         }
       }
-    } catch (Exception ex) {
+    }
+    catch (Exception ex)
+    {
       System.out.println("Simple linear Reservoir - Error: " + ex.getMessage());
     }
 
     return Qs;
   }
 
-  public static void Qom_InitializeProblemVariables() {
+  public static void Qom_InitializeProblemVariables(){
 
     // problem variables
     P_ = new double[regFin_ - regIni_ + 1];
@@ -1123,7 +1159,7 @@ public class QomExe {
     Vi_ = new double[regFin_ - regIni_ + 1];
     Vp_ = new double[regFin_ - regIni_ + 1];
     Vg_ = new double[regFin_ - regIni_ + 1];
-    RunoffR_ = new double[regFin_ - regIni_ + 1];
+    RunoffR_= new double[regFin_ - regIni_ + 1];
     Qi_ = new double[regFin_ - regIni_ + 1];
     Qp_ = new double[regFin_ - regIni_ + 1];
     Qg_ = new double[regFin_ - regIni_ + 1];
@@ -1136,37 +1172,42 @@ public class QomExe {
     Vo_ = new double[regFin_ - regIni_];
     Vc_ = new double[regFin_ - regIni_];
     double Plast = 0.0;
-    for (int i = 0; i < Pconst_.length; i++) {
-      P_[i] = Pconst_[i];
-      Paccum_[i] = Plast + P_[i];
+    for (int i = 0; i < Pconst_.length; i++)
+    {
+      P_[i]= Pconst_[i];
+      Paccum_[i]=Plast + P_[i];
       PEVT_[i] = PEVTconst_[i];
 
       Plast = Paccum_[i];
     }
   }
 
-  public static double FunctionNSE(java.lang.Double[] O, java.lang.Double[] E) {
+  public static double FunctionNSE(java.lang.Double[] O, java.lang.Double[] E)
+  {
     // function Efficiency Nash-Sutcliffe
     // O[k] : k-th observed data value of streamflow
     // E[k] : k-th estimated or forecasted value of streamflow
     int k = O.length;
     double Om = 0.0;
 
-    // mean of the observed data
-    for (int i = 0; i < k; i++) {
+    //mean of the observed data
+    for(int i=0; i<k;i++)
+    {
       Om += O[i];
     }
-    Om = Om / k;
+    Om = Om/k;
 
     double SSRes = 0.0;
     double SSTot = 0.0;
     double NSE = 0.0;
-    for (int i = 0; i < k; i++) {
-      // Sum of Squares of Residuals, also called the residual sum of squares
+    for (int i = 0; i < k; i++)
+    {
+      //Sum of Squares of Residuals, also called the residual sum of squares
       SSRes += Math.pow((E[i] - O[i]), 2.0);
-      // Total Sum of Squares (proportional to the sample variance)
+      //Total Sum of Squares (proportional to the sample variance)
       SSTot += Math.pow((O[i] - Om), 2.0);
     }
+
 
     if (SSTot > 0) {
       NSE = 1.0 - SSRes / SSTot;
@@ -1175,7 +1216,8 @@ public class QomExe {
     return NSE;
   }
 
-  public static double FunctionNSEO(java.lang.Double[] O, java.lang.Double[] E) {
+  public static double FunctionNSEO(java.lang.Double[] O, java.lang.Double[] E)
+  {
     // function Efficiency Nash-Sutcliffe
     // O[k] : k-th observed data value of streamflow
     // E[k] : k-th forecasted or estimated or calculated of value of streamflow (discharge)
@@ -1188,22 +1230,24 @@ public class QomExe {
     return NSEO;
   }
 
-  public static double FunctionPBIAS(java.lang.Double[] O, java.lang.Double[] E) {
+  public static double FunctionPBIAS(java.lang.Double[] O, java.lang.Double[] E)
+  {
     // function percent bias (PBIAS)
     // measures the average tendency of the estimated (simulated) data to be larger
     // or smaller than their observed counterparts
     // O[k] : k-th observed data value of streamflow
     // F[k] : k-th forecasted or estimated or calculated of value of streamflow (discharge)
-    double PBIAS = 0.0;
-    double SOMF = 0.0;
-    double SO = 0.0;
+    double PBIAS=0.0;
+    double SOMF=0.0;
+    double SO=0.0;
 
     // register numbers
     int k = O.length;
-    for (int i = 0; i < k; i++) {
-      // if(test_>1) {
+    for(int i=0; i<k;i++)
+    {
+      //if(test_>1) {
       //    if (maxO_ > ) E[i] *= 0.85;
-      // }
+      //}
 
       SOMF += (E[i] - O[i]);
       SO += O[i];
@@ -1216,72 +1260,84 @@ public class QomExe {
     return Math.abs(PBIAS);
   }
 
-  public static double FunctionSE(java.lang.Double[] O, java.lang.Double[] F) {
+  public static double FunctionSE(java.lang.Double[] O, java.lang.Double[] F)
+  {
     // function Square Error
     // O[k] : k-th observed data value of streamflow
     // F[k] : k-th forecasted or estimated or calculated of value of streamflow (discharge)
     int k = O.length;
-    double SE = 0.0;
-    for (int i = 0; i < k; i++) {
-      SE += Math.pow((F[i] - O[i]), 2.0);
+    double SE=0.0;
+    for(int i=0; i<k;i++)
+    {
+      SE += Math.pow((F[i] - O[i]), 2.0 );
     }
     return SE;
   }
 
-  public static double FunctionSIE(java.lang.Double[] O, java.lang.Double[] F) {
+  public static double FunctionSIE(java.lang.Double[] O, java.lang.Double[] F)
+  {
     // function Square Inverse Error
     // O[k] : k-th observed data value of streamflow
     // F[k] : k-th forecasted value of streamflow
     int k = O.length;
-    double SIE = 0.0;
-    for (int i = 0; i < k; i++) {
-      if (O[i] != 0.0 && F[i] != 0.0 && (1.0 / F[i] - 1.0 / O[i]) > 0.0) {
-        SIE += Math.pow((1.0 / F[i] - 1.0 / O[i]), 2.0);
+    double SIE=0.0;
+    for(int i=0; i<k;i++)
+    {
+      if(O[i]!=0.0 && F[i]!=0.0 && (1.0/F[i] - 1.0/O[i]) > 0.0)
+      {
+        SIE += Math.pow((1.0/F[i] - 1.0/O[i]), 2.0 );
       }
     }
     return SIE;
   }
 
-  public static double FunctionModule(java.lang.Double[] O, java.lang.Double[] F) {
+  public static double FunctionModule(java.lang.Double[] O, java.lang.Double[] F)
+  {
     // function Module
     // O[k] : k-th observed data value of streamflow
     // F[k] : k-th forecasted value of streamflow
     int k = O.length;
-    double M = 0.0;
-    for (int i = 0; i < k; i++) {
+    double M=0.0;
+    for(int i=0; i<k;i++)
+    {
       M += Math.abs(F[i] - O[i]);
     }
     return M;
   }
 
-  public static double FunctionRSE(java.lang.Double[] O, java.lang.Double[] F) {
+  public static double FunctionRSE(java.lang.Double[] O, java.lang.Double[] F)
+  {
     // function Relative Square Error
     // O[k] : k-th observed data value of streamflow
     // F[k] : k-th forecasted value of streamflow
-    double RSE = 0.0;
+    double RSE=0.0;
     // register numbers
     int k = O.length;
-    for (int i = 0; i < k; i++) {
-      RSE += Math.pow((F[i] - O[i]) / O[i], 2.0);
+    for(int i=0; i<k;i++)
+    {
+      RSE += Math.pow((F[i] - O[i])/O[i], 2.0 );
     }
     return RSE;
   }
 
-  public static double FunctionMSE(java.lang.Double[] O, java.lang.Double[] F) {
+  public static double FunctionMSE(java.lang.Double[] O, java.lang.Double[] F)
+  {
     // function Mean Error Square-root
     // O[k] : k-th observed data value of streamflow
     // F[k] : k-th forecasted value of streamflow
-    double MSE = 0.0;
+    double MSE=0.0;
     // register numbers
     int k = O.length;
-    for (int i = 0; i < k; i++) {
+    for(int i=0; i<k;i++)
+    {
       MSE += Math.sqrt(Math.abs(F[i] - O[i]));
     }
-    MSE = MSE / k;
+    MSE  = MSE / k;
     return MSE;
   }
 
-  public static double FunctionRMSE(java.lang.Double[] O, java.lang.Double[] F) {
+  public static double FunctionRMSE(java.lang.Double[] O, java.lang.Double[] F)
+  {
     // function Mean Error Square-root
     // O[k] : k-th observed data value of streamflow
     // F[k] : k-th forecasted value of streamflow
@@ -1294,23 +1350,25 @@ public class QomExe {
     // to qualify what is considered a low RMSE based on the observations
     // standard deviation.
 
-    double RMSE = 0.0;
+    double RMSE=0.0;
 
     // register numbers
     int k = O.length;
-    for (int i = 0; i < k; i++) {
+    for(int i=0; i<k;i++)
+    {
       RMSE += Math.pow(O[i] - F[i], 2.0);
     }
-    RMSE = Math.abs(Math.sqrt(RMSE));
+    RMSE  = Math.abs(Math.sqrt(RMSE));
 
     return RMSE;
   }
 
-  public static double FunctionRSR(java.lang.Double[] O, java.lang.Double[] F) {
+  public static double FunctionRSR(java.lang.Double[] O, java.lang.Double[] F)
+  {
     // function Mean Error Square-root
     // O[k] : k-th observed data value of streamflow
     // F[k] : k-th forecasted value of streamflow
-    // Based on the recommendation by Singh et al. (2004),
+    //Based on the recommendation by Singh et al. (2004),
     // a model evaluation statistic, named the
     // RMSE-observations standard deviation ratio (RSR),
     // was developed. RSR standardizes RMSE using the
@@ -1321,17 +1379,19 @@ public class QomExe {
     // standard deviation of measured data.
 
     double RSR = 0.0;
-    double RMSE = FunctionRMSE(O, F);
+    double RMSE=FunctionRMSE(O, F);
     double STDEVo = 0.0;
     double mean = 0.0;
     // register numbers
     int k = O.length;
-    for (int i = 0; i < k; i++) {
+    for(int i=0; i<k;i++)
+    {
       mean += O[i];
     }
     mean /= O.length;
 
-    for (int i = 0; i < k; i++) {
+    for(int i=0; i<k;i++)
+    {
       STDEVo += Math.pow(O[i] - mean, 2.0);
     }
 
@@ -1341,15 +1401,14 @@ public class QomExe {
 
     return RSR;
   }
-
-  public static double FunctionRQV(
-      java.lang.Double[] Qo, java.lang.Double[] Qf, double[] Vo, double[] Vf) {
+  public static double FunctionRQV(java.lang.Double[] Qo, java.lang.Double[] Qf, double[]Vo, double[]Vf)
+  {
     // function Ratio Streamflow Volume
     // Qo[k] : k-th observed data value of streamflow
     // Qf[k] : k-th forecasted value of streamflow
     // Vo[k] : l-th observed data value of streamflow
     // Vf[k] : l-th forecasted value of streamflow
-    double RQV = 0.0;
+    double RQV=0.0;
     // register numbers
     int k = Qo.length;
     int l = Vo.length;
@@ -1361,33 +1420,38 @@ public class QomExe {
     double RVoc = 0;
     double RVom = 0.0;
 
-    for (int i = 0; i < k; i++) {
+    for(int i=0; i<k;i++)
+    {
       Qom += Qo[i];
     }
-    Qom = Qom / k;
+    Qom = Qom/k;
 
-    for (int j = 0; j < l; j++) {
+    for(int j=0; j<l;j++)
+    {
       Vom += Vo[j];
     }
-    Vom = Vom / l;
+    Vom = Vom/l;
 
-    for (int i = 0; i < k; i++) {
+    for (int i = 0; i < k; i++)
+    {
       RQoc += Math.pow((Qf[i] - Qo[i]), 2.0);
       RQom += Math.pow((Qo[i] - Qom), 2.0);
     }
 
-    for (int j = 0; j < l; j++) {
+    for (int j = 0; j < l; j++)
+    {
       RVoc += Math.pow((Vf[j] - Vo[j]), 2.0);
       RVom += Math.pow((Vo[j] - Vom), 2.0);
     }
     double a = RQoc / RQom;
     double b = RVoc / RVom;
-    RQV = 1 - b / a; //
+    RQV =  1- b / a; //
 
     return RQV;
   }
 
-  public static double FunctionCDR2(java.lang.Double[] O, java.lang.Double[] E) {
+  public static double FunctionCDR2(java.lang.Double[] O, java.lang.Double[] E)
+  {
     // function Coefficient of Determination
     // denoted R2 and pronounced R squared
     // O[k] : k-th observed data value of streamflow
@@ -1398,35 +1462,35 @@ public class QomExe {
     double SOE = 0.0;
     double SO2 = 0.0;
     double SE2 = 0.0;
-    double R = 0.0;
-    double R2 = 0.0;
+    double R=0.0;
+    double R2=0.0;
 
-    // mean of the observed data
-    for (int i = 0; i < N; i++) {
+    //mean of the observed data
+    for(int i=0; i<N;i++)
+    {
       SO += O[i];
       SE += E[i];
-      SOE += O[i] * E[i];
-      SO2 += O[i] * O[i];
-      SE2 += E[i] * E[i];
+      SOE += O[i]*E[i];
+      SO2 += O[i]*O[i];
+      SE2 += E[i]*E[i];
     }
     // Pearson’s correlation coefficient
-    R =
-        (N * SOE - SO * SE)
-            / (Math.sqrt((N * SO2 - Math.pow(SO, 2.0)) * (N * SE2 - Math.pow(SE, 2.0))));
+    R = (N*SOE-SO*SE)/(Math.sqrt((N*SO2-Math.pow(SO,2.0))*(N*SE2-Math.pow(SE,2.0))));
     // coefficient of determination
-    R2 = R * R;
+    R2= R*R;
 
     return R2;
   }
 
-  public static double Functions_Mahalanobis_Distance(java.lang.Double[] O, java.lang.Double[] E) {
+  public static double Functions_Mahalanobis_Distance(java.lang.Double[] O, java.lang.Double[] E)
+  {
     // Mahalanobis Distance With Variance for estimated value respect to estimated data
 
     int N = O.length;
-    double minQo = 1e25;
-    double minQe = 1e25;
-    double maxQo = -1e25;
-    double maxQe = -1e25;
+    double minQo=1e25;
+    double minQe=1e25;
+    double maxQo=-1e25;
+    double maxQe=-1e25;
 
     double sumO = 0.0; //
     double sumE = 0.0; //
@@ -1442,28 +1506,32 @@ public class QomExe {
     double r = 0.0; // Pearson correlation
     double MD = 0.0; // mahalanobis distance
 
-    for (int n = 0; n < N; n++) {
-      if (minQo >= O[n]) {
-        minQo = O[n];
-        minQe = E[n];
+    for(int n=0;n<N;n++)
+    {
+      if(minQo>=O[n])
+      {
+        minQo=O[n];
+        minQe=E[n];
       }
 
-      if (maxQo <= O[n]) {
-        maxQo = O[n];
-        maxQe = E[n];
+      if(maxQo<=O[n])
+      {
+        maxQo=O[n];
+        maxQe=E[n];
       }
 
       sumO += O[n];
       sumE += E[n];
-      sumOxO += O[n] * O[n];
-      sumExE += E[n] * E[n];
-      sumOxE += O[n] * E[n];
+      sumOxO += O[n]*O[n];
+      sumExE += E[n]*E[n];
+      sumOxE += O[n]*E[n];
 
       meanO += O[n];
       meanE += E[n];
+
     }
 
-    // mean of the observed data and values estimated
+    //mean of the observed data and values estimated
     meanO /= N;
     meanE /= N;
 
@@ -1480,28 +1548,24 @@ public class QomExe {
     SE = Math.sqrt(S2E);
 
     // Pearson’s correlation coefficient
-    r =
-        (N * sumOxE - sumO * sumE)
-            / (Math.sqrt((N * sumOxO - Math.pow(sumO, 2.0)) * (N * sumExE - Math.pow(sumE, 2.0))));
+    r = (N*sumOxE-sumO*sumE)/(Math.sqrt((N*sumOxO-Math.pow(sumO,2.0))*(N*sumExE-Math.pow(sumE,2.0))));
 
     // Mahalanobis distance
-    MD =
-        Math.pow((maxQo - minQo), 2.0) / S2O
-            + Math.pow((maxQe - minQe), 2.0) / S2E
-            - 2.0 * r * (maxQo - minQo) * (maxQe - minQe) / (SO * SE);
-    MD = Math.sqrt(1 / (1 - Math.pow(r, 2.0)) * MD);
+    MD = Math.pow((maxQo-minQo), 2.0) / S2O + Math.pow((maxQe-minQe), 2.0) / S2E - 2.0*r*(maxQo-minQo)*(maxQe-minQe)/(SO*SE);
+    MD = Math.sqrt(1/(1-Math.pow(r,2.0))*MD);
 
     return MD;
   }
 
-  public static double FunctionERQV(
-      java.lang.Double[] Qo, java.lang.Double[] Qf, double[] Vo, double[] Vf) {
+
+  public static double FunctionERQV(java.lang.Double[] Qo, java.lang.Double[] Qf, double[]Vo, double[]Vf)
+  {
     // function enhanced Ratio Streamflow and Volume
     // Qo[k] : k-th observed data value of streamflow
     // Qf[k] : k-th forecasted value of streamflow
     // Vo[k] : l-th observed data value of streamflow
     // Vf[k] : l-th forecasted value of streamflow
-    double RQV = 0.0;
+    double RQV=0.0;
 
     // register numbers
     int k = Qo.length;
@@ -1514,161 +1578,180 @@ public class QomExe {
     double RVoc = 0;
     double RVom = 0.0;
 
-    for (int i = 0; i < k; i++) {
+    for(int i=0; i<k;i++)
+    {
       Qom += Qo[i];
     }
-    Qom = Qom / k;
+    Qom = Qom/k;
 
-    for (int j = 0; j < l; j++) {
+    for(int j=0; j<l;j++)
+    {
       Vom += Vo[j];
     }
-    Vom = Vom / l;
+    Vom = Vom/l;
 
-    for (int i = 0; i < k; i++) {
+    for (int i = 0; i < k; i++)
+    {
       RQoc += Math.pow((Qf[i] - Qo[i]), 2.0);
       RQom += Math.pow((Qo[i] - Qom), 2.0);
     }
 
-    for (int j = 0; j < l; j++) {
+    for (int j = 0; j < l; j++)
+    {
       RVoc += Math.pow((Vf[j] - Vo[j]), 2.0);
       RVom += Math.pow((Vo[j] - Vom), 2.0);
     }
-    // RQV = Math.sqrt(RVoc / Vo.length) * RQom / RQoc;
+    //RQV = Math.sqrt(RVoc / Vo.length) * RQom / RQoc;
 
     double m = 1.0;
-    int p = (int) (RVoc * m);
-    while (p < 1) {
+    int p=(int)(RVoc * m);
+    while (p < 1)
+    {
       m *= 10.0;
-      p = (int) (RVoc * m);
+      p=(int)(RVoc * m);
     }
     RQV = Math.sqrt(RVoc * m / Vo.length) * RQom / RQoc * 100.0;
 
     return RQV;
   }
 
-  public static double FunctionMLSE(java.lang.Double[] O, java.lang.Double[] F) {
+  public static double FunctionMLSE(java.lang.Double[] O, java.lang.Double[] F)
+  {
     // function mean logarithmic squared error (MLSE)
     // O[k] : k-th observed data value of streamflow
     // F[k] : k-th forecasted value of streamflow
-    double MSLE = 0.0;
-    int k = O.length;
-    for (int i = 0; i < k; i++) {
-      if (O[i] != 0.0 && F[i] != 0.0) {
-        MSLE += Math.pow(Math.log(F[i]) - Math.log(O[i]), 2.0);
+    double MSLE=0.0;
+    int k=O.length;
+    for(int i=0; i<k;i++)
+    {
+      if(O[i] != 0.0 && F[i] != 0.0)
+      {
+        MSLE += Math.pow(Math.log(F[i])-Math.log(O[i]), 2.0);
       }
     }
-    MSLE = MSLE / k;
+    MSLE = MSLE/k;
 
     return MSLE;
   }
 
-  public static double FunctionMSDE(java.lang.Double[] O, java.lang.Double[] F) {
+  public static double FunctionMSDE(java.lang.Double[] O, java.lang.Double[] F)
+  {
     // function mean squared derivative error (MSDE)
     // O[k] : k-th observed data value of streamflow
     // F[k] : k-th forecasted value of streamflow
-    double MSDE = 0.0;
-    int k = O.length;
-    for (int i = 1; i < k; i++) {
-      MSDE += Math.pow((F[i] - F[i - 1]) - (O[i] - O[i - 1]), 2.0);
+    double MSDE=0.0;
+    int k=O.length;
+    for(int i=1; i<k;i++)
+    {
+      MSDE += Math.pow((F[i]-F[i-1])-(O[i]-O[i-1]),2.0);
     }
-    MSDE = MSDE / (k - 1);
+    MSDE = MSDE/(k-1);
 
     return MSDE;
   }
 
-  public static double FunctionM4E(java.lang.Double[] O, java.lang.Double[] F) {
+  public static double FunctionM4E(java.lang.Double[] O, java.lang.Double[] F)
+  {
     // mean fourth-power error (M4E) (de Vos and Rientjes, 2007, 2008)
     // O[k] : k-th observed data value of streamflow
     // F[k] : k-th forecasted value of streamflow
-    double M4E = 0.0;
-    int k = O.length;
-    for (int i = 1; i < k; i++) {
-      M4E += Math.pow((F[i] - O[i]), 4.0);
+    double M4E=0.0;
+    int k=O.length;
+    for(int i=1; i<k;i++)
+    {
+      M4E += Math.pow((F[i]-O[i]), 4.0);
     }
-    M4E = M4E / k;
+    M4E = M4E/k;
 
     return M4E;
   }
 
-  public static double FunctionEMQQ(java.lang.Double[] O, java.lang.Double[] F) {
-    double EMQQ = 0.0;
-    double minQo = 1.0E208;
-    double minQf = 1.0E208;
-    double maxQo = -1.0E208;
-    double maxQf = -1.0E208;
+  public static double FunctionEMQQ(java.lang.Double[] O, java.lang.Double[] F)
+  {
+    double EMQQ=0.0;
+    double minQo=1.0E208;
+    double minQf=1.0E208;
+    double maxQo=-1.0E208;
+    double maxQf=-1.0E208;
 
-    for (int n = 0; n < Qo_.length; n++) {
-      if (minQo >= Qo_[n]) {
-        minQo = Qo_[n];
-        minQf = Qc_[n];
+    for(int n=0;n< Qo_.length;n++)
+    {
+      if(minQo>=Qo_[n])
+      {
+        minQo=Qo_[n];
+        minQf=Qc_[n];
       }
 
-      if (maxQo <= Qo_[n]) {
-        maxQo = Qo_[n];
-        maxQf = Qc_[n];
+      if(maxQo<=Qo_[n])
+      {
+        maxQo=Qo_[n];
+        maxQf=Qc_[n];
       }
     }
     double EQmin = Math.sqrt(Math.pow((minQf - minQo), 2.0));
     double EQmax = Math.sqrt(Math.pow((maxQf - maxQo), 2.0));
-    EMQQ = EQmin + EQmax;
+    EMQQ = EQmin+EQmax;
 
     return EMQQ;
   }
 
-  public static double FunctionERQQ(java.lang.Double[] O, java.lang.Double[] F) {
+  public static double FunctionERQQ(java.lang.Double[] O, java.lang.Double[] F)
+  {
     // sumatoria de los errores relativos de los caudales máximos y mínimos
     // acfectados por un coeficiente de importancia
 
-    double ERQQ = 0.0;
-    double minQo = 1.0E208;
-    double minQf = 1.0E208;
-    double maxQo = -1.0E208;
-    double maxQf = -1.0E208;
+    double ERQQ=0.0;
+    double minQo=1.0E208;
+    double minQf=1.0E208;
+    double maxQo=-1.0E208;
+    double maxQf=-1.0E208;
 
-    for (int n = 0; n < Qo_.length; n++) {
-      if (minQo >= Qo_[n]) {
-        minQo = Qo_[n];
-        minQf = Qc_[n];
+    for(int n=0;n< Qo_.length;n++)
+    {
+      if(minQo>=Qo_[n])
+      {
+        minQo=Qo_[n];
+        minQf=Qc_[n];
       }
 
-      if (maxQo <= Qo_[n]) {
-        maxQo = Qo_[n];
-        maxQf = Qc_[n];
+      if(maxQo<=Qo_[n])
+      {
+        maxQo=Qo_[n];
+        maxQf=Qc_[n];
       }
     }
-    // double EQmin = Math.sqrt(Math.pow((minQf - minQo), 2.0));
-    // double EQmax = Math.sqrt(Math.pow((maxQf - maxQo), 2.0));
+    //double EQmin = Math.sqrt(Math.pow((minQf - minQo), 2.0));
+    //double EQmax = Math.sqrt(Math.pow((maxQf - maxQo), 2.0));
 
     double EQmin = Math.abs(minQf - minQo);
     double EQmax = Math.abs(maxQf - maxQo);
-    double div = (maxQo * 0.95 + minQo * 0.05);
-    if (div > 0) {
+    double div=  (maxQo*0.95+minQo*0.05);
+    if (div>0) {
       ERQQ = (EQmax * 0.95 + EQmin * 0.05) / (maxQo * 0.95 + minQo * 0.05);
-    } else {
-      ERQQ = 1e25;
     }
+    else{ERQQ=1e25;}
 
     return ERQQ;
   }
 
   public static void Function_Duration_Curve(java.lang.Double[] F) {
 
-    java.lang.Double[] QeD = new java.lang.Double[F.length];
-    System.arraycopy(F, 0, QeD, 0, F.length);
+    java.lang.Double[] QeD = new java.lang.Double [F.length];
+    System.arraycopy(F,0,QeD,0,F.length);
     Arrays.sort(QeD, Collections.reverseOrder());
 
-    DurationQe_[0] = QeD[0];
-    for (int j = 1; j < DurationSeg_; j++) {
-      for (int i = 0; i < regFin_ - regIni_ + 1; i++) {
-        double Duration = (double) i / (double) (regFin_ - regIni_ + 1) * 100.0;
+    DurationQe_[0]=QeD[0];
+    for (int j=1;j<DurationSeg_;j++){
+      for (int i=0;i<regFin_ - regIni_+ 1;i++){
+        double Duration= (double)i/ (double)(regFin_ - regIni_ + 1)*100.0;
 
-        if (Duration > DurationT_[j]) {
-          DurationQe_[j] = QeD[i - 1];
+        if(Duration > DurationT_[j]){
+          DurationQe_[j]=QeD[i-1];
           break;
         }
       }
     }
-    DurationQe_[DurationQo_.length - 1] = QeD[QeD.length - 1];
+    DurationQe_[DurationQo_.length-1]=QeD[QeD.length-1];
     return;
 
     /* Integral cuadales de duración observados y estimados
@@ -1682,50 +1765,56 @@ public class QomExe {
      */
   }
 
-  public static double[] VolumeOfHydrograph(java.lang.Double[] f) {
+  public static double[] VolumeOfHydrograph(java.lang.Double[] f)
+  {
     // f: function in m3/s
     // for volume convertUnit to Hm3 = X[m3/s]*Δt[h]*3600[s/h]*1[Hm3/1000000] = Δt * 0.36 / 100.0
     // for flows convertUnit (m3/s) = 1.0
-    double convertUnit = Δt_ * 0.36 / 100.0;
-    double[] fm = new double[f.length - 1];
-    for (int j = 1; j < f.length; j++) {
-      fm[j - 1] = (f[j - 1] + f[j]) / 2.0 * convertUnit;
+    double convertUnit = Δt_*0.36/100.0;
+    double[] fm = new double[f.length-1];
+    for (int j = 1; j < f.length; j++)
+    {
+      fm[j-1] = (f[j - 1] + f[j]) / 2.0 * convertUnit;
     }
     return fm;
   }
 
-  public static double SumVolumeOfHydrograph(double[] f) {
-    double area = 0.0;
-    for (int j = 0; j < f.length; j++) {
-      area += f[j];
+  public static double SumVolumeOfHydrograph(double[] f)
+  {
+    double area=0.0;
+    for (int j = 0; j < f.length; j++)
+    {
+      area+=f[j];
     }
 
     return area;
   }
 
-  public static void MaxAndMinStreamflows() {
-    Qpo_ = -1.0e208;
-    QPc_ = -1.0e208;
-    Qmo_ = 1.0e208;
-    Qmc_ = 1.0e208;
-    QPic_ = -1.0e208;
-    QPpc_ = -1.0e208;
-    QPgc_ = -1.0e208;
-    for (int j = 1; j < Qo_.length; j++) {
+  public static void MaxAndMinStreamflows()
+  {
+    Qpo_=-1.0e208;
+    QPc_=-1.0e208;
+    Qmo_=1.0e208;
+    Qmc_=1.0e208;
+    QPic_=-1.0e208;
+    QPpc_=-1.0e208;
+    QPgc_=-1.0e208;
+    for (int j = 1; j < Qo_.length; j++)
+    {
       // maximun
-      if (Qpo_ < Qo_[j]) Qpo_ = Qo_[j];
-      if (QPc_ < Qc_[j]) QPc_ = Qc_[j];
-      if (QPic_ < Qis_[j]) QPic_ = Qis_[j];
-      if (QPpc_ < Qps_[j]) QPpc_ = Qps_[j];
-      if (QPgc_ < Qgs_[j]) QPgc_ = Qgs_[j];
+      if(Qpo_ < Qo_[j]) Qpo_ = Qo_[j];
+      if(QPc_ < Qc_[j]) QPc_ = Qc_[j];
+      if(QPic_ < Qis_[j]) QPic_ = Qis_[j];
+      if(QPpc_ < Qps_[j]) QPpc_ = Qps_[j];
+      if(QPgc_ < Qgs_[j]) QPgc_ = Qgs_[j];
 
-      // minimun
-      if (Qmo_ > Qo_[j]) Qmo_ = Qo_[j];
-      if (Qmc_ > Qc_[j]) Qmc_ = Qc_[j];
+      //minimun
+      if(Qmo_ > Qo_[j]) Qmo_ = Qo_[j];
+      if(Qmc_ > Qc_[j]) Qmc_ = Qc_[j];
     }
   }
 
-  public static void Qom_ReadProblems(String fileName) {
+  public static void Qom_ReadProblems(String fileName){
 
     char ch;
     int lineN = 0;
@@ -1733,8 +1822,8 @@ public class QomExe {
     String var1 = "";
     String var2 = "";
     String fileLoad = fileName;
-    int i = 0, j = 0;
-    selectedOF_ = new String[2];
+    int i=0, j=0;
+    selectedOF_= new String[2];
 
     try {
       // create a File instance
@@ -1743,49 +1832,49 @@ public class QomExe {
       Scanner input = new Scanner(file);
       // Head read
       lineN++;
-      line = input.nextLine();
+      line=input.nextLine();
       lineN++;
-      line = input.nextLine();
+      line=input.nextLine();
       lineN++;
-      line = input.nextLine();
+      line=input.nextLine();
 
       // file read
-      line = input.nextLine();
-      j = 0;
-      for (i = line.length() - 1; i >= 0; i--) {
-        ch = line.charAt(i);
-        if (ch == ' ') {
-          j = i + 1;
+      line=input.nextLine();
+      j=0;
+      for(i=line.length()-1;i>=0;i--){
+        ch=line.charAt(i);
+        if(ch == ' '){
+          j=i+1;
           break;
         }
       }
       test_ = Integer.valueOf(line.substring(j));
 
       // number of decision Variables
-      int w = 0;
-      for (i = j - 2; i >= 0; i--) {
-        ch = line.charAt(i);
-        if (ch == ' ') {
-          w = i + 1;
+      int w=0;
+      for(i=j-2;i>=0;i--){
+        ch=line.charAt(i);
+        if(ch == ' '){
+          w=i+1;
           break;
         }
       }
-      getNumberOfVariables = Integer.valueOf(line.substring(w, j - 1));
+      getNumberOfVariables = Integer.valueOf(line.substring(w, j-1));
 
       // number of objective function
-      int v = 0;
-      for (i = w - 2; i >= 0; i--) {
-        ch = line.charAt(i);
-        if (ch == ' ') {
-          v = i + 1;
+      int v=0;
+      for(i=w-2;i>=0;i--){
+        ch=line.charAt(i);
+        if(ch == ' '){
+          v=i+1;
           break;
         }
       }
-      getNumberOfObjectives = Integer.valueOf(line.substring(v, w - 1));
+      getNumberOfObjectives=Integer.valueOf(line.substring(v, w-1));
 
-      selectedOF_ = new String[getNumberOfObjectives];
+      selectedOF_= new String[getNumberOfObjectives];
       int m = 0;
-      for (j = getNumberOfObjectives - 1; j > -1; j--) {
+      for(j=getNumberOfObjectives-1;j>-1;j--) {
         for (i = v - 2; i >= 0; i--) {
           ch = line.charAt(i);
           if (ch == ' ') {
@@ -1794,82 +1883,81 @@ public class QomExe {
           }
         }
         selectedOF_[j] = line.substring(m, v - 1);
-        v = m;
-        m = 0;
+        v=m;
+        m=0;
       }
 
-      textOF_ = "";
-      for (i = 0; i < getNumberOfObjectives; i++) {
-        textOF_ += "f" + (i + 1) + ": " + selectedOF_[i] + " ";
+      textOF_="";
+      for(i=0;i<getNumberOfObjectives;i++) {
+        textOF_ += "f" + (i+1) + ": " + selectedOF_[i]+ " ";
       }
 
       // file_ = line.substring(0, v-1);
       int n = 0;
-      for (n = v; n >= 0; n--) {
+      for (n = v ; n >= 0; n--) {
         ch = line.charAt(n);
         if (ch == '/' || ch == '\\') {
           break;
         }
       }
-      file_ = line.substring(n + 1, v - 1); // n+1 v-1
-      folder_ = line.substring(0, n + 1);
+      file_ = line.substring(n+1, v-1); //n+1 v-1
+      folder_ = line.substring(0, n+1);
 
       // close the file
       input.close();
 
       // for validation at VAR jMetal file
-      if (test_ == -1) {
+      if(test_==-1)
+      {
         // count amount lines
-        // String directory = "C:/jMetal_5.0_Home/Qom/QomStudy/pareto_fronts/";
-        // fileLoad = directory + "ReferenceFrontAndVariableStudy-jMetal.txt";
+        //String directory = "C:/jMetal_5.0_Home/Qom/QomStudy/pareto_fronts/";
+        //fileLoad = directory + "ReferenceFrontAndVariableStudy-jMetal.txt";
         String directory = "";
         fileLoad = directory + "solutions.txt";
         file = new java.io.File(fileLoad);
         Scanner s = new Scanner(file);
-        int maxLine_ = -1; // head
-        do {
+        int maxLine_=-1; // head
+        do{
           String linea = s.nextLine();
           maxLine_++;
-        } while (s.hasNextLine());
+        }while (s.hasNextLine());
         // close the file
         input.close();
 
         // read variables in VAR jMetal file
-        fd_ = new double[maxLine_][getNumberOfObjectives];
-        var_ = new double[maxLine_][getNumberOfVariables];
+        fd_ = new double [maxLine_][getNumberOfObjectives];
+        var_ = new double [maxLine_][getNumberOfVariables];
         file = new java.io.File(fileLoad);
         s = new Scanner(file);
         String linea = s.nextLine(); // head
-        i = 0;
-        do {
+        i=0;
+        do{
           linea = s.nextLine();
           String[] campos = linea.split(" ");
-          for (String campo : campos) {
-            int withLine =
-                1; // =0 si no hay número de linea en la primera columna utilizado para Study
-            int ind = 0;
-            for (j = getNumberOfObjectives + withLine;
-                j < (getNumberOfObjectives + getNumberOfVariables + withLine);
-                j++) {
-              var_[i][ind] = Double.valueOf(campos[j]);
+          for(String campo : campos){
+            int withLine=1; //=0 si no hay número de linea en la primera columna utilizado para Study
+            int ind=0;
+            for(j=getNumberOfObjectives+withLine;j<(getNumberOfObjectives+getNumberOfVariables+withLine);j++)
+            {
+              var_[i][ind]=Double.valueOf(campos[j]);
               ind++;
             }
           }
           i++;
-        } while (s.hasNextLine());
+        }while (s.hasNextLine());
         // close the file
         input.close();
       }
-    } catch (Exception ex) {
-      System.out.println(
-          "ERROR in file: " + fileLoad + " - (" + ex.getMessage() + ") in line No:" + lineN);
+    }
+    catch (Exception ex) {
+      System.out.println("ERROR in file: " + fileLoad + " - (" + ex.getMessage() + ") in line No:" + lineN);
       System.exit(1);
     }
   }
 
-  public static void Qom_ReadFileBasin(String fileName) {
+  public static void Qom_ReadFileBasin(String fileName){
 
-    int i, j = 0, lineN = 0;
+    int i, j=0, lineN=0;
     char ch;
     String txt = "";
 
@@ -1881,383 +1969,327 @@ public class QomExe {
       // Read data from file
 
       lineN++;
-      txt = input.nextLine();
+      txt=input.nextLine();
       lineN++;
-      txt = input.nextLine();
+      txt=input.nextLine();
       lineN++;
-      txt = input.nextLine();
+      txt=input.nextLine();
 
       lineN++;
       // description
-      txt = input.nextLine();
-      for (i = 0; i < txt.length(); i++) {
-        ch = txt.charAt(i);
-        if (ch == ' ') {
-          j = i + 1;
-          break;
-        }
+      txt=input.nextLine();
+      for(i=0;i<txt.length();i++){
+        ch=txt.charAt(i);
+        if(ch == ' '){
+          j=i+1;break;}
       }
       description_ = txt.substring(j);
 
       lineN++;
       // shape
-      txt = input.nextLine();
-      for (i = txt.length() - 1; i >= 0; i--) {
-        ch = txt.charAt(i);
-        if (ch == ' ') {
-          j = i + 1;
-          break;
-        }
+      txt=input.nextLine();
+      for(i=txt.length()-1;i>=0;i--){
+        ch=txt.charAt(i);
+        if(ch == ' '){
+          j=i+1;break;}
       }
-      // shapeName_ = txt.substring(j);
+      //shapeName_ = txt.substring(j);
       txt = txt.substring(j);
-      shape_ = Double.valueOf(txt);
+      shape_= Double.valueOf(txt);
 
       lineN++;
       // number of bar groups
-      txt = input.nextLine();
-      for (i = txt.length() - 1; i >= 0; i--) {
-        ch = txt.charAt(i);
-        if (ch == ' ') {
-          j = i + 1;
-          break;
-        }
+      txt=input.nextLine();
+      for(i=txt.length()-1;i>=0;i--){
+        ch=txt.charAt(i);
+        if(ch == ' '){
+          j=i+1;break;}
       }
       txt = txt.substring(j);
-      area_ = Double.valueOf(txt);
+      area_=Double.valueOf(txt);
 
       lineN++;
       // pervious
-      txt = input.nextLine();
-      for (i = txt.length() - 1; i >= 0; i--) {
-        ch = txt.charAt(i);
-        if (ch == ' ') {
-          j = i + 1;
-          break;
-        }
+      txt=input.nextLine();
+      for(i=txt.length()-1;i>=0;i--){
+        ch=txt.charAt(i);
+        if(ch == ' '){
+          j=i+1;break;}
       }
       txt = txt.substring(j);
-      pervious_ = Double.valueOf(txt);
+      pervious_=Double.valueOf(txt);
 
       lineN++;
       // concentration time
-      txt = input.nextLine();
-      for (i = txt.length() - 1; i >= 0; i--) {
-        ch = txt.charAt(i);
-        if (ch == ' ') {
-          j = i + 1;
-          break;
-        }
+      txt=input.nextLine();
+      for(i=txt.length()-1;i>=0;i--){
+        ch=txt.charAt(i);
+        if(ch == ' '){
+          j=i+1;break;}
       }
       txt = txt.substring(j);
-      CT_ = Double.valueOf(txt);
+      CT_=Double.valueOf(txt);
 
       lineN++;
       // initial date-time
-      txt = input.nextLine();
-      txt = txt.substring(txt.length() - 24);
-      dateIni_ = txt;
-      dateIniPartial_ = dateIni_;
+      txt=input.nextLine();
+      txt = txt.substring(txt.length()-24);
+      dateIni_= txt;
+      dateIniPartial_=dateIni_;
 
       lineN++;
       // final date-time
-      txt = input.nextLine();
-      txt = txt.substring(txt.length() - 24);
-      dateFin_ = txt;
-      dateFinPartial_ = dateFin_;
+      txt=input.nextLine();
+      txt = txt.substring(txt.length()-24);
+      dateFin_=txt;
+      dateFinPartial_=dateFin_;
 
       lineN++;
       // time step
-      txt = input.nextLine();
-      for (i = txt.length() - 1; i >= 0; i--) {
-        ch = txt.charAt(i);
-        if (ch == ' ') {
-          j = i + 1;
-          break;
-        }
+      txt=input.nextLine();
+      for(i=txt.length()-1;i>=0;i--){
+        ch=txt.charAt(i);
+        if(ch == ' '){
+          j=i+1;break;}
       }
       txt = txt.substring(j);
-      Δt_ = Double.valueOf(txt);
+      Δt_=Double.valueOf(txt);
 
       lineN++;
       // initial register
-      txt = input.nextLine();
-      for (i = txt.length() - 1; i >= 0; i--) {
-        ch = txt.charAt(i);
-        if (ch == ' ') {
-          j = i + 1;
-          break;
-        }
+      txt=input.nextLine();
+      for(i=txt.length()-1;i>=0;i--){
+        ch=txt.charAt(i);
+        if(ch == ' '){
+          j=i+1;break;}
       }
       txt = txt.substring(j);
-      regIni_ = Integer.valueOf(txt);
+      regIni_=Integer.valueOf(txt);
 
       lineN++;
       // final register
-      txt = input.nextLine();
-      for (i = txt.length() - 1; i >= 0; i--) {
-        ch = txt.charAt(i);
-        if (ch == ' ') {
-          j = i + 1;
-          break;
-        }
+      txt=input.nextLine();
+      for(i=txt.length()-1;i>=0;i--){
+        ch=txt.charAt(i);
+        if(ch == ' '){
+          j=i+1;break;}
       }
       txt = txt.substring(j);
-      regFin_ = Integer.valueOf(txt);
+      regFin_=Integer.valueOf(txt);
 
       lineN++;
-      txt = input.nextLine();
-      for (i = txt.length() - 1; i >= 0; i--) {
-        ch = txt.charAt(i);
-        if (ch == ' ') {
-          j = i + 1;
-          break;
-        }
+      txt=input.nextLine();
+      for(i=txt.length()-1;i>=0;i--){
+        ch=txt.charAt(i);
+        if(ch == ' '){
+          j=i+1;break;}
       }
       txt = txt.substring(j);
-      Superficial_Storage_to_start_considering_runoff_ = Double.valueOf(txt);
-      if (Superficial_Storage_to_start_considering_runoff_ < 0.0)
-        Superficial_Storage_to_start_considering_runoff_ = 0.0;
-      if (Superficial_Storage_to_start_considering_runoff_ > 1.0)
-        Superficial_Storage_to_start_considering_runoff_ = 1.0;
+      Superficial_Storage_to_start_considering_runoff_=Double.valueOf(txt);
+      if (Superficial_Storage_to_start_considering_runoff_  < 0.0) Superficial_Storage_to_start_considering_runoff_=0.0;
+      if (Superficial_Storage_to_start_considering_runoff_  > 1.0) Superficial_Storage_to_start_considering_runoff_=1.0;
 
       lineN++;
-      txt = input.nextLine();
-      for (i = txt.length() - 1; i >= 0; i--) {
-        ch = txt.charAt(i);
-        if (ch == ' ') {
-          j = i + 1;
-          break;
-        }
+      txt=input.nextLine();
+      for(i=txt.length()-1;i>=0;i--){
+        ch=txt.charAt(i);
+        if(ch == ' '){
+          j=i+1;break;}
       }
       txt = txt.substring(j);
-      Limits_to_increase_the_peaks_flow_ = Double.valueOf(txt);
+      Limits_to_increase_the_peaks_flow_=Double.valueOf(txt);
 
       lineN++;
-      txt = input.nextLine();
-      for (i = txt.length() - 1; i >= 0; i--) {
-        ch = txt.charAt(i);
-        if (ch == ' ') {
-          j = i + 1;
-          break;
-        }
+      txt=input.nextLine();
+      for(i=txt.length()-1;i>=0;i--){
+        ch=txt.charAt(i);
+        if(ch == ' '){
+          j=i+1;break;}
       }
       txt = txt.substring(j);
-      Coefficient_to_increase_the_peaks_flow_ = Double.valueOf(txt);
-      if (Coefficient_to_increase_the_peaks_flow_ <= 1.0)
-        Coefficient_to_increase_the_peaks_flow_ = 1.0;
+      Coefficient_to_increase_the_peaks_flow_=Double.valueOf(txt);
+      if (Coefficient_to_increase_the_peaks_flow_  <= 1.0) Coefficient_to_increase_the_peaks_flow_ = 1.0;
 
       lineN++;
-      txt = input.nextLine();
-      for (i = txt.length() - 1; i >= 0; i--) {
-        ch = txt.charAt(i);
-        if (ch == ' ') {
-          j = i + 1;
-          break;
-        }
+      txt=input.nextLine();
+      for(i=txt.length()-1;i>=0;i--){
+        ch=txt.charAt(i);
+        if(ch == ' '){
+          j=i+1;break;}
       }
       txt = txt.substring(j);
-      ratio_between_evaporation_and_soil_moisture_ = Integer.valueOf(txt);
-      if (ratio_between_evaporation_and_soil_moisture_ != 0
-          || ratio_between_evaporation_and_soil_moisture_ != 1)
+      ratio_between_evaporation_and_soil_moisture_=Integer.valueOf(txt);
+      if (ratio_between_evaporation_and_soil_moisture_!= 0 || ratio_between_evaporation_and_soil_moisture_ != 1)
         ratio_between_evaporation_and_soil_moisture_ = 1;
 
       lineN++;
       // percolation Is Base Flow ?
-      txt = input.nextLine();
-      for (i = txt.length() - 1; i >= 0; i--) {
-        ch = txt.charAt(i);
-        if (ch == ' ') {
-          j = i + 1;
-          break;
-        }
+      txt=input.nextLine();
+      for(i=txt.length()-1;i>=0;i--){
+        ch=txt.charAt(i);
+        if(ch == ' '){
+          j=i+1;break;}
       }
       txt = txt.substring(j);
-      Added_direct_infiltration_ = Double.valueOf(txt);
+      Added_direct_infiltration_=Double.valueOf(txt);
 
       lineN++;
       // percolation Is Base Flow ?
-      txt = input.nextLine();
-      for (i = txt.length() - 1; i >= 0; i--) {
-        ch = txt.charAt(i);
-        if (ch == ' ') {
-          j = i + 1;
-          break;
-        }
+      txt=input.nextLine();
+      for(i=txt.length()-1;i>=0;i--){
+        ch=txt.charAt(i);
+        if(ch == ' '){
+          j=i+1;break;}
       }
       txt = txt.substring(j);
-      Percolation_is_base_flow_ = Boolean.valueOf(txt);
+      Percolation_is_base_flow_=Boolean.valueOf(txt);
 
       lineN++;
       // initial flow in impervious soil
-      txt = input.nextLine();
-      for (i = txt.length() - 1; i >= 0; i--) {
-        ch = txt.charAt(i);
-        if (ch == ' ') {
-          j = i + 1;
-          break;
-        }
+      txt=input.nextLine();
+      for(i=txt.length()-1;i>=0;i--){
+        ch=txt.charAt(i);
+        if(ch == ' '){
+          j=i+1;break;}
       }
       txt = txt.substring(j);
-      Qoi_ = Double.valueOf(txt);
+      Qoi_=Double.valueOf(txt);
 
       lineN++;
       // initial flow in pervious soil
-      txt = input.nextLine();
-      for (i = txt.length() - 1; i >= 0; i--) {
-        ch = txt.charAt(i);
-        if (ch == ' ') {
-          j = i + 1;
-          break;
-        }
+      txt=input.nextLine();
+      for(i=txt.length()-1;i>=0;i--){
+        ch=txt.charAt(i);
+        if(ch == ' '){
+          j=i+1;break;}
       }
       txt = txt.substring(j);
-      Qop_ = Double.valueOf(txt);
+      Qop_=Double.valueOf(txt);
 
       lineN++;
       // initial downwater
-      txt = input.nextLine();
-      for (i = txt.length() - 1; i >= 0; i--) {
-        ch = txt.charAt(i);
-        if (ch == ' ') {
-          j = i + 1;
-          break;
-        }
+      txt=input.nextLine();
+      for(i=txt.length()-1;i>=0;i--){
+        ch=txt.charAt(i);
+        if(ch == ' '){
+          j=i+1;break;}
       }
       txt = txt.substring(j);
-      Qog_ = Double.valueOf(txt);
+      Qog_=Double.valueOf(txt);
 
       lineN++;
       // superficial storage initial (reservoir)
-      txt = input.nextLine();
-      for (i = txt.length() - 1; i >= 0; i--) {
-        ch = txt.charAt(i);
-        if (ch == ' ') {
-          j = i + 1;
-          break;
-        }
+      txt=input.nextLine();
+      for(i=txt.length()-1;i>=0;i--){
+        ch=txt.charAt(i);
+        if(ch == ' '){
+          j=i+1;break;}
       }
       txt = txt.substring(j);
-      Ro_ = Double.valueOf(txt);
+      Ro_=Double.valueOf(txt);
 
       lineN++;
       // soil storage initial (reservoir)
-      txt = input.nextLine();
-      for (i = txt.length() - 1; i >= 0; i--) {
-        ch = txt.charAt(i);
-        if (ch == ' ') {
-          j = i + 1;
-          break;
-        }
+      txt=input.nextLine();
+      for(i=txt.length()-1;i>=0;i--){
+        ch=txt.charAt(i);
+        if(ch == ' '){
+          j=i+1;break;}
       }
       txt = txt.substring(j);
-      So_ = Double.valueOf(txt);
+      So_=Double.valueOf(txt);
 
       lineN++;
       // superficial storage maximum (reservoir)
-      txt = input.nextLine();
-      for (i = txt.length() - 1; i >= 0; i--) {
-        ch = txt.charAt(i);
-        if (ch == ' ') {
-          j = i + 1;
-          break;
-        }
+      txt=input.nextLine();
+      for(i=txt.length()-1;i>=0;i--){
+        ch=txt.charAt(i);
+        if(ch == ' '){
+          j=i+1;break;}
       }
       txt = txt.substring(j);
-      Rmax_ = Double.valueOf(txt);
+      Rmax_=Double.valueOf(txt);
 
       lineN++;
       // soil storage maximum
-      txt = input.nextLine();
-      for (i = txt.length() - 1; i >= 0; i--) {
-        ch = txt.charAt(i);
-        if (ch == ' ') {
-          j = i + 1;
-          break;
-        }
+      txt=input.nextLine();
+      for(i=txt.length()-1;i>=0;i--){
+        ch=txt.charAt(i);
+        if(ch == ' '){
+          j=i+1;break;}
       }
       txt = txt.substring(j);
-      Smax_ = Double.valueOf(txt);
+      Smax_=Double.valueOf(txt);
 
       lineN++;
       // ratio ercolation
-      txt = input.nextLine();
-      for (i = txt.length() - 1; i >= 0; i--) {
-        ch = txt.charAt(i);
-        if (ch == ' ') {
-          j = i + 1;
-          break;
-        }
+      txt=input.nextLine();
+      for(i=txt.length()-1;i>=0;i--){
+        ch=txt.charAt(i);
+        if(ch == ' '){
+          j=i+1;break;}
       }
       txt = txt.substring(j);
-      VC_ = Double.valueOf(txt);
+      VC_=Double.valueOf(txt);
 
       lineN++;
       // basin coeficient retention impervious soil
-      txt = input.nextLine();
-      for (i = txt.length() - 1; i >= 0; i--) {
-        ch = txt.charAt(i);
-        if (ch == ' ') {
-          j = i + 1;
-          break;
-        }
+      txt=input.nextLine();
+      for(i=txt.length()-1;i>=0;i--){
+        ch=txt.charAt(i);
+        if(ch == ' '){
+          j=i+1;break;}
       }
       txt = txt.substring(j);
-      Ki_ = Double.valueOf(txt);
+      Ki_=Double.valueOf(txt);
 
       lineN++;
       // basin coeficient retention pervious soil
-      txt = input.nextLine();
-      for (i = txt.length() - 1; i >= 0; i--) {
-        ch = txt.charAt(i);
-        if (ch == ' ') {
-          j = i + 1;
-          break;
-        }
+      txt=input.nextLine();
+      for(i=txt.length()-1;i>=0;i--){
+        ch=txt.charAt(i);
+        if(ch == ' '){
+          j=i+1;break;}
       }
       txt = txt.substring(j);
-      Kp_ = Double.valueOf(txt);
+      Kp_=Double.valueOf(txt);
 
       lineN++;
       // basin coeficient retention internal soil
-      txt = input.nextLine();
-      for (i = txt.length() - 1; i >= 0; i--) {
-        ch = txt.charAt(i);
-        if (ch == ' ') {
-          j = i + 1;
-          break;
-        }
+      txt=input.nextLine();
+      for(i=txt.length()-1;i>=0;i--){
+        ch=txt.charAt(i);
+        if(ch == ' '){
+          j=i+1;break;}
       }
       txt = txt.substring(j);
-      Kg_ = Double.valueOf(txt);
+      Kg_=Double.valueOf(txt);
 
       lineN++;
       // exponente del reservorio lineal simple
-      txt = input.nextLine();
-      for (i = txt.length() - 1; i >= 0; i--) {
-        ch = txt.charAt(i);
-        if (ch == ' ') {
-          j = i + 1;
-          break;
-        }
+      txt=input.nextLine();
+      for(i=txt.length()-1;i>=0;i--){
+        ch=txt.charAt(i);
+        if(ch == ' '){
+          j=i+1;break;}
       }
       txt = txt.substring(j);
-      Eq_ = Double.valueOf(txt);
+      Eq_=Double.valueOf(txt);
 
       // clse the file
       input.close();
       System.out.println("*.basin file has been read");
 
-    } catch (Exception ex) {
-      System.out.println(
-          "ERROR in file: " + fileName + " - (" + ex.getMessage() + ") in line No:" + lineN);
+    }
+    catch (Exception ex) {
+      System.out.println("ERROR in file: " + fileName + " - (" + ex.getMessage() + ") in line No:" + lineN);
       System.exit(1);
     }
   }
 
-  public static void Qom_ReadFileRain(String fileName) {
+  public static void Qom_ReadFileRain(String fileName){
 
-    int i, j = 0, lineN = 0;
+    int i, j=0, lineN=0;
     char ch;
     String txt = "";
 
@@ -2270,38 +2302,39 @@ public class QomExe {
       // Read data from file
 
       lineN++;
-      txt = input.nextLine();
+      txt=input.nextLine();
       lineN++;
-      txt = input.nextLine();
+      txt=input.nextLine();
       lineN++;
-      txt = input.nextLine();
+      txt=input.nextLine();
 
-      for (i = 0; i < regIni_ - 1; i++) {
+      for (i=0;i<regIni_-1;i++){
         lineN++;
-        txt = input.nextLine();
+        txt=input.nextLine();
       }
 
       Pconst_ = new double[regFin_ - regIni_ + 1];
       Paccum_ = new double[regFin_ - regIni_ + 1];
-      for (i = 0; i < regFin_ - regIni_; i++) {
+      for (i=0;i<regFin_ - regIni_;i++){
         lineN++;
-        txt = input.nextLine();
-        Pconst_[i] = Double.valueOf(txt);
+        txt=input.nextLine();
+        Pconst_[i]=Double.valueOf(txt);
         Paccum_[i] = Paccum_1 + Pconst_[i];
         Paccum_1 = Pconst_[i];
       }
       input.close();
       System.out.println("*.rain file has been read");
-    } catch (Exception ex) {
-      System.out.println(
-          "ERROR in file: " + fileName + " - (" + ex.getMessage() + ") in line No:" + lineN);
+    }
+    catch (Exception ex) {
+      System.out.println("ERROR in file: " + fileName + " - (" + ex.getMessage() + ") in line No:" + lineN);
       System.exit(1);
     }
   }
 
-  public static void Qom_ReadFilePEVT(String fileName) {
 
-    int i, j = 0, lineN = 0;
+  public static void Qom_ReadFilePEVT(String fileName){
+
+    int i, j=0, lineN=0;
     char ch;
     String txt = "";
 
@@ -2313,37 +2346,37 @@ public class QomExe {
       // Read data from file
 
       lineN++;
-      txt = input.nextLine();
+      txt=input.nextLine();
       lineN++;
-      txt = input.nextLine();
+      txt=input.nextLine();
       lineN++;
-      txt = input.nextLine();
+      txt=input.nextLine();
 
-      for (i = 0; i < regIni_ - 1; i++) {
+      for (i=0;i<regIni_-1;i++){
         lineN++;
-        txt = input.nextLine();
+        txt=input.nextLine();
       }
 
       PEVTconst_ = new double[regFin_ - regIni_ + 1];
-      for (i = 0; i < regFin_ - regIni_ + 1; i++) {
+      for (i=0;i<regFin_ - regIni_+ 1;i++){
         lineN++;
-        txt = input.nextLine();
-        PEVTconst_[i] = Double.valueOf(txt);
+        txt=input.nextLine();
+        PEVTconst_[i]=Double.valueOf(txt);
       }
       input.close();
       System.out.println("*.pevt file has been read");
 
-    } catch (Exception ex) {
-      System.out.println(
-          "ERROR in file: " + fileName + " - (" + ex.getMessage() + ") in line No:" + lineN);
+    }
+    catch (Exception ex) {
+      System.out.println("ERROR in file: " + fileName + " - (" + ex.getMessage() + ") in line No:" + lineN);
       System.exit(1);
     }
   }
 
-  public static void Qom_ReadFileQo(String fileName) {
+  public static void Qom_ReadFileQo(String fileName){
 
-    maxO_ = 0; // maximum observed steamflow
-    int i, j = 0, lineN = 0;
+    maxO_=0; // maximum observed steamflow
+    int i, j=0, lineN=0;
     char ch;
     String txt = "";
 
@@ -2355,15 +2388,15 @@ public class QomExe {
       // Read data from file
 
       lineN++;
-      txt = input.nextLine();
+      txt=input.nextLine();
       lineN++;
-      txt = input.nextLine();
+      txt=input.nextLine();
       lineN++;
-      txt = input.nextLine();
+      txt=input.nextLine();
 
-      for (i = 0; i < regIni_ - 1; i++) {
+      for (i=0;i<regIni_-1;i++){
         lineN++;
-        txt = input.nextLine();
+        txt=input.nextLine();
       }
 
       Qo_ = new java.lang.Double[regFin_ - regIni_ + 1];
@@ -2371,34 +2404,34 @@ public class QomExe {
       QoD_ = new Double[regFin_ - regIni_ + 1];
       double Duration_;
 
-      for (i = 0; i < regFin_ - regIni_ + 1; i++) {
+      for (i=0;i<regFin_ - regIni_+ 1;i++){
         lineN++;
-        txt = input.nextLine();
-        Qo_[i] = Double.valueOf(txt);
-        if (maxO_ < Qo_[i]) maxO_ = Qo_[i];
+        txt=input.nextLine();
+        Qo_[i]=Double.valueOf(txt);
+        if (maxO_<Qo_[i]) maxO_=Qo_[i];
 
-        QoD_[i] = Qo_[i];
+        QoD_[i]=Qo_[i];
       }
       Arrays.sort(QoD_, Collections.reverseOrder());
 
       // array para curva de duracion caudales observados
-      DurationQo_[0] = QoD_[0];
-      for (j = 1; j < DurationSeg_; j++) {
-        for (i = 0; i < regFin_ - regIni_ + 1; i++) {
-          Duration_ = (double) i / (double) (regFin_ - regIni_ + 1) * 100.0;
+      DurationQo_[0]=QoD_[0];
+      for (j=1;j<DurationSeg_;j++){
+        for (i=0;i<regFin_ - regIni_+ 1;i++){
+          Duration_= (double)i/ (double)(regFin_ - regIni_ + 1)*100.0;
 
-          if (Duration_ > DurationT_[j]) {
-            DurationQo_[j] = QoD_[i - 1];
+          if(Duration_ > DurationT_[j]){
+            DurationQo_[j]=QoD_[i-1];
             break;
           }
         }
       }
 
-      DurationQo_[DurationSeg_ - 1] = QoD_[QoD_.length - 1];
+      DurationQo_[DurationSeg_-1]=QoD_[QoD_.length-1];
 
-      // first flow peak
+      //first flow peak
       peakQP_[0] = QoD_[0];
-      // second flow peak
+      //second flow peak
       peakQP_[1] = QoD_[1];
 
       System.out.println("*.Qo file has been read");
@@ -2410,36 +2443,38 @@ public class QomExe {
       // Sirve para controlar y tomar decisiones en lluvias
       // de alta intensidad y corta duración que provocan picos
       // de caudales importantes.
-      double auxVol = 0;
-      double auxP = 0;
-      double auxQ = 0;
-      double auxT = 0;
+      double auxVol=0;
+      double auxP=0;
+      double auxQ=0;
+      double auxT=0;
 
-      for (i = 0; i < Pconst_.length; i++) {
-        if (Pconst_[i] == 0 && auxT > 48) {
-          auxP = 0;
-          auxVol = 0;
-          auxQ = 0;
-          auxT = 0;
+      for (i = 0; i < Pconst_.length; i++)
+      {
+        if (Pconst_[i]==0 && auxT > 48) {
+          auxP=0;
+          auxVol=0;
+          auxQ=0;
+          auxT=0;
         }
-        auxT += Δt_;
-        auxVol += Pconst_[i];
+        auxT+= Δt_;
+        auxVol+=Pconst_[i];
 
         if (peakP_ < Pconst_[i]) {
           peakP_ = Pconst_[i];
           peakPindx_ = i;
-          peakPV_ = auxVol;
-          peakPT_ = auxT;
-          auxVol = 0;
-          auxT = 0;
+          peakPV_=auxVol;
+          peakPT_=auxT;
+          auxVol=0;
+          auxT=0;
 
-          peakPQ_ = 0.0;
-          for (j = i; j < Qo_.length; j++) {
-            if (peakPQ_ < Qo_[j]) {
-              peakPQ_ = Qo_[j];
-              peakPindxQ_ = j;
+          peakPQ_=0.0;
+          for(j=i;j<Qo_.length; j++){
+            if (peakPQ_<Qo_[j]){
+              peakPQ_=Qo_[j];
+              peakPindxQ_=j;
             }
-            if (peakPQ_ > Qo_[j]) {
+            if (peakPQ_>Qo_[j])
+            {
               break;
             }
           }
@@ -2448,8 +2483,8 @@ public class QomExe {
 
       // determina el caudal pico observado
       // y elvolumen de lluvia que lo ha generdo
-      // peakQP_ = new double[2];
-      peakQindxP_ = 0;
+      //peakQP_ = new double[2];
+      peakQindxP_=0;
 
       for (i = 0; i < Qo_.length; i++) {
         if (peakQP_[0] < Qo_[i]) {
@@ -2457,8 +2492,9 @@ public class QomExe {
         }
       }
 
-      peakQT_ = 0;
-      peakQV_ = 0;
+
+      peakQT_=0;
+      peakQV_=0;
       for (i = peakQindxP_; i > 0; i--) {
         peakQT_ += Δt_;
         peakQV_ += Pconst_[i];
@@ -2467,16 +2503,16 @@ public class QomExe {
         }
       }
 
-    } catch (Exception ex) {
-      System.out.println(
-          "ERROR in file: " + fileName + " - (" + ex.getMessage() + ") in line No:" + lineN);
+    }
+    catch (Exception ex) {
+      System.out.println("ERROR in file: " + fileName + " - (" + ex.getMessage() + ") in line No:" + lineN);
       System.exit(1);
     }
   }
 
-  public static void Qom_ReadFileHo(String fileName) {
+  public static void Qom_ReadFileHo(String fileName){
 
-    int i, j = 0, lineN = 0;
+    int i, j=0, lineN=0;
     char ch;
     String txt = "";
 
@@ -2488,44 +2524,44 @@ public class QomExe {
       // Read data from file
 
       lineN++;
-      txt = input.nextLine();
+      txt=input.nextLine();
       lineN++;
-      txt = input.nextLine();
+      txt=input.nextLine();
       lineN++;
-      txt = input.nextLine();
+      txt=input.nextLine();
 
-      for (i = 0; i < regIni_ - 1; i++) {
+      for (i=0;i<regIni_-1;i++){
         lineN++;
-        txt = input.nextLine();
+        txt=input.nextLine();
       }
 
       Ho_ = new double[regFin_ - regIni_ + 1];
-      for (i = 0; i < regFin_ - regIni_ + 1; i++) {
+      for (i=0;i<regFin_ - regIni_+ 1;i++){
         lineN++;
-        txt = input.nextLine();
-        Ho_[i] = Double.valueOf(txt);
+        txt=input.nextLine();
+        Ho_[i]=Double.valueOf(txt);
       }
       System.out.println("*.Ho file has been read");
 
       // clse the file
       input.close();
-    } catch (Exception ex) {
-      System.out.println(
-          "ERROR in file: " + fileName + " - (" + ex.getMessage() + ") in line No:" + lineN);
+    }
+    catch (Exception ex) {
+      System.out.println("ERROR in file: " + fileName + " - (" + ex.getMessage() + ") in line No:" + lineN);
       System.exit(1);
     }
   }
 
-  public static void Qom_ReadLimitsVariable(String fileName) {
+  public static void Qom_ReadLimitsVariable(String fileName){
     char ch;
     String line = "";
     String var1 = "";
     String var2 = "";
-    int i, j = 0;
-    int lineN = 0;
+    int i, j=0;
+    int lineN=0;
 
-    java.util.List<Double> lowerLimit = new ArrayList<>(getNumberOfVariables);
-    java.util.List<Double> upperLimit = new ArrayList<>(getNumberOfVariables);
+    java.util.List<Double> lowerLimit = new ArrayList<>(getNumberOfVariables) ;
+    java.util.List<Double> upperLimit = new ArrayList<>(getNumberOfVariables) ;
 
     try {
       // create a File instance
@@ -2535,80 +2571,81 @@ public class QomExe {
       // Read data from file
 
       lineN++;
-      line = input.nextLine();
+      line=input.nextLine();
       lineN++;
-      line = input.nextLine();
+      line=input.nextLine();
       lineN++;
-      line = input.nextLine();
+      line=input.nextLine();
 
-      for (int k = 0; k < getNumberOfVariables; k++) {
+      for(int k=0;k<getNumberOfVariables;k++)
+      {
         lineN++;
-        line = input.nextLine();
-        j = 0;
-        for (i = line.length() - 1; i >= 0; i--) {
-          ch = line.charAt(i);
-          if (ch == ' ') {
-            j = i + 1;
+        line=input.nextLine();
+        j=0;
+        for(i=line.length()-1;i>=0;i--){
+          ch=line.charAt(i);
+          if(ch == ' '){
+            j=i+1;
             break;
           }
         }
         var2 = line.substring(j);
         upperLimit.add(Double.valueOf(var2));
 
-        int m = 0;
-        for (i = j - 2; i >= 0; i--) {
-          ch = line.charAt(i);
-          if (ch == ' ') {
-            m = i + 1;
+        int m=0;
+        for(i=j-2;i>=0;i--){
+          ch=line.charAt(i);
+          if(ch == ' '){
+            m=i+1;
             break;
           }
         }
-        var1 = line.substring(m, j);
+        var1 = line.substring(m,j);
         lowerLimit.add(Double.valueOf(var1));
       }
 
       System.out.println("*.var file has been read");
       // clse the fil e
       input.close();
-    } catch (Exception ex) {
-      System.out.println(
-          "ERROR in file: " + fileName + " - (" + ex.getMessage() + ") in line No:" + lineN);
+    }
+    catch (Exception ex) {
+      System.out.println("ERROR in file: " + fileName + " - (" + ex.getMessage() + ") in line No:" + lineN);
       System.exit(1);
     }
   }
 
-  public static void Qom_PrintArchSolutions() {
+  public static void Qom_PrintArchSolutions(){
     // print solution hydrograph
     try {
 
       MaxAndMinStreamflows();
-      /*
-            PrintStream ps = new PrintStream("Optimization.txt");
-            ps.printf("Objective Functions"); ps.println();
-            ps.printf("Eval: " + numberOfEval_); ps.println();
-            ps.printf(textOF_); ps.println();
-            ps.printf(optOF_); ps.println();ps.println();
-            ps.printf("Rmax (mm): %12.3f", Rmax_); ps.println();
-            ps.printf("Smax (mm): %12.3f", Smax_); ps.println();
-            ps.printf("Pc (mm/h):   %12.3f", VC_); ps.println();
-            ps.printf("Ki    (h):   %12.3f", Ki_); ps.println();
-            ps.printf("Kp    (h):   %12.3f", Kp_); ps.println();
-            ps.printf("Kg    (h):   %12.3f", Kg_);ps.println();
-            ps.printf("Eq      :   %12.3f", Eq_);
-            ps.close();
-      */
+/*
+      PrintStream ps = new PrintStream("Optimization.txt");
+      ps.printf("Objective Functions"); ps.println();
+      ps.printf("Eval: " + numberOfEval_); ps.println();
+      ps.printf(textOF_); ps.println();
+      ps.printf(optOF_); ps.println();ps.println();
+      ps.printf("Rmax (mm): %12.3f", Rmax_); ps.println();
+      ps.printf("Smax (mm): %12.3f", Smax_); ps.println();
+      ps.printf("Pc (mm/h):   %12.3f", VC_); ps.println();
+      ps.printf("Ki    (h):   %12.3f", Ki_); ps.println();
+      ps.printf("Kp    (h):   %12.3f", Kp_); ps.println();
+      ps.printf("Kg    (h):   %12.3f", Kg_);ps.println();
+      ps.printf("Eq      :   %12.3f", Eq_);
+      ps.close();
+*/
       PrintStream ps = new PrintStream("Hydrograph.txt"); // NEW 21/10/2016
       // yyyy/mm/dd hh:mm:ss a.m.
       int year, month, date, hour, minute, second;
-      String tt;
-      year = Integer.valueOf(dateIni_.substring(0, 4));
-      month = Integer.valueOf(dateIni_.substring(6, 7));
-      date = Integer.valueOf(dateIni_.substring(9, 10));
-      hour = Integer.valueOf(dateIni_.substring(11, 13));
-      minute = Integer.valueOf(dateIni_.substring(15, 16));
-      second = Integer.valueOf(dateIni_.substring(17, 19));
-      tt = dateIni_.substring(20, 24);
-      if (tt != "") {
+      String  tt;
+      year =  Integer.valueOf(dateIni_.substring(0,4));
+      month =  Integer.valueOf(dateIni_.substring(6,7));
+      date =  Integer.valueOf(dateIni_.substring(9,10));
+      hour =  Integer.valueOf(dateIni_.substring(11,13));
+      minute =  Integer.valueOf(dateIni_.substring(15,16));
+      second =  Integer.valueOf(dateIni_.substring(17,19));
+      tt =  dateIni_.substring(20,24);
+      if(tt!= "") {
         if (hour == 12 && (tt.equals("a.m."))) {
           hour = 0;
         } else if (tt.equals("p.m.")) {
@@ -2617,230 +2654,144 @@ public class QomExe {
       }
 
       Calendar cal = Calendar.getInstance();
-      cal.set(year, month - 1, date, hour, minute, second);
+      cal.set(year, month-1, date, hour, minute, second);
 
       int nDate, nHour, nMinute;
       nDate = 0;
-      if ((Δt_ % 24.0) == 0) nDate = (int) (Δt_ / 24.0);
+      if((Δt_ % 24.0) == 0) nDate = (int)(Δt_/24.0);
       nHour = 0;
-      if ((Δt_ * 60.0 % 60.0) == 0 && Δt_ < 24.0 && Δt_ >= 1.0) nHour = (int) Δt_;
+      if((Δt_* 60.0 % 60.0)== 0 && Δt_<24.0 && Δt_>=1.0) nHour=(int)Δt_;
       nMinute = 0;
-      if (Δt_ < 1.0) nMinute = (int) (60.0 * Δt_);
+      if(Δt_< 1.0) nMinute = (int) (60.0 * Δt_);
       SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 
       // NEW 2016-10-21
       cal.add(Calendar.DATE, nDate);
       cal.add(Calendar.MINUTE, nMinute);
-      for (int i = 0; i < regIni_; i++) {
-        if (nMinute != 0) {
-          cal.add(Calendar.MINUTE, nMinute * i - nMinute);
-        } else if (nHour != 0) {
-          cal.add(Calendar.HOUR, nHour * i);
-        }
-      } // Next i
-      dateIniPartial_ = sdf.format(cal.getTime());
+      for(int i=0; i< regIni_; i++){
+        if(nMinute!=0){cal.add(Calendar.MINUTE, nMinute*i-nMinute);}
+        else if (nHour !=0){cal.add(Calendar.HOUR, nHour*i);}
+      } //Next i
+      dateIniPartial_=sdf.format(cal.getTime());
 
-      // ps.printf("Date Time(h)  Qo (m3/s)   Qc (m3/s)"); ps.println();
-      for (int i = 0; i < Qo_.length; i++) {
+      //ps.printf("Date Time(h)  Qo (m3/s)   Qc (m3/s)"); ps.println();
+      for(int i=0; i< Qo_.length; i++){
 
-        ps.printf(
-            sdf.format(cal.getTime()) + "%12.3f %10.3f %10.3f %10.3f",
-            i * Δt_,
-            Qo_[i],
-            Qc_[i],
-            Qgs_[i]);
-        ps.println();
+        ps.printf(sdf.format(cal.getTime()) + "%12.3f %10.3f %10.3f %10.3f", i*Δt_, Qo_[i], Qc_[i], Qgs_[i]); ps.println();
 
-        dateFinPartial_ = sdf.format(cal.getTime());
+        dateFinPartial_=sdf.format(cal.getTime());
 
         cal.add(Calendar.DATE, nDate);
         cal.add(Calendar.HOUR, nHour);
         cal.add(Calendar.MINUTE, nMinute);
-      } // Next i
+
+      } //Next i
 
       ps.close();
 
-      double RE = 0.0;
-      double RE2 = 0.0;
+      double RE=0.0;
+      double RE2=0.0;
       ps = new PrintStream("Balance.txt");
-      ps.printf(
-          "Qom a Rainfall Hydrologic Model ("
-              + QomVer_
-              + ") this is a simple model of losses and excesses");
-      ps.println();
-      ps.printf("Clark a Runoff Model. Qom-Clark a rainfall-runoff model");
-      ps.println();
-      ps.printf(file_);
-      ps.println();
-      ps.printf(description_);
-      ps.println();
-      double stepT = (double) ((int) (Δt_ * 100.0) / 100.0);
-      // ps.printf("Period for " + this.dateIni_ + " to " +  this.dateFin_  + " step " + stepT+
-      // "h"); ps.println();
-      ps.printf(
-          "Period for " + dateIniPartial_ + " to " + dateFinPartial_ + " step " + stepT + "h");
-      ps.println();
+      ps.printf("Qom a Rainfall Hydrologic Model (" + QomVer_ + ") this is a simple model of losses and excesses"); ps.println();
+      ps.printf("Clark a Runoff Model. Qom-Clark a rainfall-runoff model"); ps.println();
+      ps.printf(file_); ps.println();
+      ps.printf(description_); ps.println();
+      double stepT = (double)((int)(Δt_*100.0)/100.0);
+      //ps.printf("Period for " + this.dateIni_ + " to " +  this.dateFin_  + " step " + stepT+ "h"); ps.println();
+      ps.printf("Period for " + dateIniPartial_ + " to " +  dateFinPartial_  + " step " + stepT+ "h"); ps.println();
 
-      ps.printf("--------------------------------------------------");
-      ps.println();
-      ps.printf("Mass Balance of Qom in mm (Hm3)");
-      ps.println();
-      ps.printf("Rain:                         %8.2f(%8.3f)", Input_, Input_ / 1000.0 * area_);
-      ps.println();
-      ps.printf("Initial Superficial Storage:  %8.2f(%8.3f)", Ro_, Ro_ / 1000.0 * area_);
-      ps.println();
-      ps.printf("Initial Soil Storage:         %8.2f(%8.3f)", So_, So_ / 1000.0 * area_);
-      ps.println();
-      ps.printf(
-          "EVT:                                %8.2f(%8.3f)",
-          Evapotraspiration_, Evapotraspiration_ / 1000.0 * area_);
-      ps.println();
-      ps.printf(
-          "Superficial Storage:                %8.2f(%8.3f)",
-          SuperficialStore_, SuperficialStore_ / 1000.0 * area_);
-      ps.println();
-      ps.printf(
-          "Soil Storage:                       %8.2f(%8.3f)",
-          SoilStore_, SoilStore_ / 1000.0 * area_);
-      ps.println();
-      double TotalFlow = 0.0;
-      if (Percolation_is_base_flow_) {
-        // TotalFlow =OutputSuperficial_+StoreOrOutput_Deep_;
-        TotalFlow = OutputSuperficial_; // +StoreOrOutput_Deep_;
-        ps.printf(
-            "Groundwater Runoff:                 %8.2f(%8.3f)",
-            StoreOrOutput_Deep_, StoreOrOutput_Deep_ / 1000.0 * area_);
-        ps.println();
-      } else {
-        TotalFlow = OutputSuperficial_;
-        ps.printf(
-            "Deep Storage:                       %8.2f(%8.3f)",
-            StoreOrOutput_Deep_, StoreOrOutput_Deep_ / 1000.0 * area_);
-        ps.println();
+      ps.printf("--------------------------------------------------");ps.println();
+      ps.printf("Mass Balance of Qom in mm (Hm3)"); ps.println();
+      ps.printf("Rain:                         %8.2f(%8.3f)", Input_,Input_/1000.0*area_); ps.println();
+      ps.printf("Initial Superficial Storage:  %8.2f(%8.3f)", Ro_, Ro_/1000.0*area_); ps.println();
+      ps.printf("Initial Soil Storage:         %8.2f(%8.3f)", So_, So_/1000.0*area_); ps.println();
+      ps.printf("EVT:                                %8.2f(%8.3f)", Evapotraspiration_, Evapotraspiration_/1000.0*area_); ps.println();
+      ps.printf("Superficial Storage:                %8.2f(%8.3f)", SuperficialStore_, SuperficialStore_/1000.0*area_); ps.println();
+      ps.printf("Soil Storage:                       %8.2f(%8.3f)", SoilStore_, SoilStore_/1000.0*area_); ps.println();
+      double TotalFlow =0.0;
+      if(Percolation_is_base_flow_)
+      {
+        //TotalFlow =OutputSuperficial_+StoreOrOutput_Deep_;
+        TotalFlow =OutputSuperficial_; // +StoreOrOutput_Deep_;
+        ps.printf("Groundwater Runoff:                 %8.2f(%8.3f)", StoreOrOutput_Deep_, StoreOrOutput_Deep_/1000.0*area_); ps.println();
       }
-      ps.printf(
-          "Superficial Runoff:                 %8.2f(%8.3f)",
-          OutputSuperficial_, OutputSuperficial_ / 1000.0 * area_);
-      ps.println();
-      double totalVomumeEstimated =
-          Evapotraspiration_
-              + SuperficialStore_
-              + SoilStore_
-              + StoreOrOutput_Deep_
-              + OutputSuperficial_;
-      ps.printf(
-          "Total volume estimated:       %8.2f(%8.3f)",
-          totalVomumeEstimated, totalVomumeEstimated / 1000.0 * area_);
-      ps.println();
-      ps.printf(
-          "Balance AE:                   %8.2f(%8.3f)",
-          MassBalance_, MassBalance_ / 1000.0 * area_);
-      ps.println();
-      ps.printf("Relative Error (RE):          %8.2f", MassBalanceError_);
-      ps.println();
-      ps.printf("Total Volume Runoff Hm3 (lts)");
-      ps.println();
-      ps.printf("  in pervious superficial     %8.4f(%8.3fx10^6)", sumVpxArea_, sumVpxArea_ * 1000);
-      ps.println();
-      ps.printf("  in impervious superficial   %8.4f(%8.3fx10^6)", sumVixArea_, sumVixArea_ * 1000);
-      ps.println();
-      ps.printf("  off growndwater             %8.4f(%8.3fx10^6)", sumVgxArea_, sumVgxArea_ * 1000);
-      ps.println();
-      ps.printf("Corff. Runoff                 %8.3f", OutputSuperficial_ / Input_);
-      ps.println();
-      ps.printf("--------------------------------------------------");
-      ps.println();
-      ps.printf("Comparison of water volumes mm (Hm3)");
-      ps.println();
-      ps.printf(" Observed hydrograph mm (Hm3):%8.2f(%8.3f)", VHo_ * 1000.0 / area_, VHo_);
-      ps.println();
-      ps.printf(" Estimated for Clark mm (Hm3):%8.2f(%8.3f)", VHc_ * 1000.0 / area_, VHc_);
-      ps.println();
-      if (VHo_ > 0) {
-        // error= (1.0-Math.min(VHc_,VHo_)/Math.max(VHo_,VHc_))*100.0;
-        RE = (VHc_ - VHo_) / VHo_ * 100.0;
+      else
+      {
+        TotalFlow =OutputSuperficial_;
+        ps.printf("Deep Storage:                       %8.2f(%8.3f)", StoreOrOutput_Deep_, StoreOrOutput_Deep_/1000.0*area_); ps.println();
+      }
+      ps.printf("Superficial Runoff:                 %8.2f(%8.3f)", OutputSuperficial_, OutputSuperficial_/1000.0*area_); ps.println();
+      double totalVomumeEstimated = Evapotraspiration_ + SuperficialStore_ + SoilStore_ + StoreOrOutput_Deep_ + OutputSuperficial_ ;
+      ps.printf("Total volume estimated:       %8.2f(%8.3f)",totalVomumeEstimated, totalVomumeEstimated/1000.0*area_); ps.println();
+      ps.printf("Balance AE:                   %8.2f(%8.3f)",  MassBalance_, MassBalance_/1000.0*area_); ps.println();
+      ps.printf("Relative Error (RE):          %8.2f", MassBalanceError_); ps.println();
+      ps.printf("Total Volume Runoff Hm3 (lts)"); ps.println();
+      ps.printf("  in pervious superficial     %8.4f(%8.3fx10^6)", sumVpxArea_, sumVpxArea_*1000 ); ps.println();
+      ps.printf("  in impervious superficial   %8.4f(%8.3fx10^6)", sumVixArea_, sumVixArea_*1000 ); ps.println();
+      ps.printf("  off growndwater             %8.4f(%8.3fx10^6)", sumVgxArea_, sumVgxArea_*1000 ); ps.println();
+      ps.printf("Corff. Runoff                 %8.3f", OutputSuperficial_ /Input_ ); ps.println();
+      ps.printf("--------------------------------------------------"); ps.println();
+      ps.printf("Comparison of water volumes mm (Hm3)"); ps.println();
+      ps.printf(" Observed hydrograph mm (Hm3):%8.2f(%8.3f)", VHo_*1000.0/area_, VHo_); ps.println();
+      ps.printf(" Estimated for Clark mm (Hm3):%8.2f(%8.3f)", VHc_*1000.0/area_, VHc_); ps.println();
+      if(VHo_>0){
+        //error= (1.0-Math.min(VHc_,VHo_)/Math.max(VHo_,VHc_))*100.0;
+        RE = ( VHc_-VHo_) / VHo_ * 100.0;
         ps.printf("  Relative Error (RE):        %8.2f", RE);
         ps.println();
-      } else {
+      }
+      else{
         ps.printf("  Relative Error (RE):");
         ps.println();
       }
-      RE = (-1 + (TotalFlow / 1000.0 * area_) / VHo_) * 100.0; // +DepFlow
-      ps.printf(
-          " Estimated for Qom mm (Hm3)   %8.2f(%8.3f)", TotalFlow, TotalFlow / 1000.0 * area_);
-      ps.println();
-      ps.printf("   Relative Error (RE):       %8.2f", RE);
-      ps.println();
-      ps.printf("--------------------------------------------------");
-      ps.println();
-      // RE= (Qmc_ - Qmo_) / Qmo_ * 100.0;
-      // ps.printf("Relative error (RE)%%:            %8.2f", RE); ps.println();
-      ps.printf("Hydrograph of Clark");
-      ps.println();
-      ps.printf("Estimated (m3/s):             %8.3f", QPc_);
-      ps.println();
-      ps.printf("     Superfitial impervious:        %8.3f", QPic_);
-      ps.println();
-      ps.printf("     Superfitial pervious:          %8.3f", QPpc_);
-      ps.println();
-      ps.printf("     Groundwater:                   %8.3f", QPgc_);
-      ps.println();
-      ps.printf("Flow peak of Hydrograph");
-      ps.println();
-      ps.printf("Observed maximum (m3/s):      %8.2f", peakQP_[0]);
-      ps.println(); // Qpo_
-      ps.printf("Observed second  (m3/s):      %8.2f", peakQP_[1]);
-      ps.println();
-      // RE= (Qmc_ - Qmo_) / Qmo_ * 100.0;
-      if (Qpo_ > 0) {
-        // RE= (1.0-Math.min(Qpo_,QPc_)/Math.max(Qpo_,QPc_))*100.0;
+      RE = (-1+(TotalFlow/1000.0*area_)  / VHo_ ) * 100.0;//+DepFlow
+      ps.printf(" Estimated for Qom mm (Hm3)   %8.2f(%8.3f)", TotalFlow, TotalFlow/1000.0*area_); ps.println();
+      ps.printf("   Relative Error (RE):       %8.2f", RE); ps.println();
+      ps.printf("--------------------------------------------------"); ps.println();
+      //RE= (Qmc_ - Qmo_) / Qmo_ * 100.0;
+      //ps.printf("Relative error (RE)%%:            %8.2f", RE); ps.println();
+      ps.printf("Hydrograph of Clark"); ps.println();
+      ps.printf("Estimated (m3/s):             %8.3f", QPc_); ps.println();
+      ps.printf("     Superfitial impervious:        %8.3f", QPic_); ps.println();
+      ps.printf("     Superfitial pervious:          %8.3f", QPpc_); ps.println();
+      ps.printf("     Groundwater:                   %8.3f", QPgc_); ps.println();
+      ps.printf("Flow peak of Hydrograph"); ps.println();
+      ps.printf("Observed maximum (m3/s):      %8.2f", peakQP_[0]); ps.println(); //Qpo_
+      ps.printf("Observed second  (m3/s):      %8.2f", peakQP_[1]); ps.println();
+      //RE= (Qmc_ - Qmo_) / Qmo_ * 100.0;
+      if(Qpo_>0) {
+        //RE= (1.0-Math.min(Qpo_,QPc_)/Math.max(Qpo_,QPc_))*100.0;
         RE = (QPc_ - peakQP_[0]) / peakQP_[0] * 100.0;
-        ps.printf("Relative error max peak (RE): %8.2f", RE);
-        ps.println();
+        ps.printf("Relative error max peak (RE): %8.2f", RE); ps.println();
         RE2 = (QPc_ - peakQP_[1]) / peakQP_[1] * 100.0;
         ps.printf("RE second max peak:           %8.2f", RE2);
         ps.println();
-      } else {
+      }
+      else {
         ps.printf("Relative error (RE):");
         ps.println();
       }
-      ps.printf("Minimum flowrates");
-      ps.println();
-      ps.printf("Observed (m3/s):              %8.2f", Qmo_);
-      ps.println();
-      ps.printf("Estimated (m3/s):             %8.2f", Qmc_);
-      ps.println();
-      ps.printf("-----------------------------------------");
-      ps.println();
-      ps.printf("Precipitation maximum intensity");
-      ps.println();
-      ps.printf("rain max. intensity:            %8.2f", peakP_);
-      ps.println();
-      ps.printf("index for rain max. intensity:    %d", peakPindx_);
-      ps.println();
-      ps.printf("Accumulated rain (mm)           %8.2f", peakPV_);
-      ps.println();
-      ps.printf("Accumulated time (h)            %8.2f", peakPT_);
-      ps.println();
-      ps.printf("local peak Q (m3/s)             %8.2f", peakPQ_);
-      ps.println();
-      ps.printf("index local peak Q (m3/s):        %d", peakPindxQ_);
-      ps.println();
-      ps.printf("Precipitation for Q with max. peak");
-      ps.println();
-      ps.printf("index for max. peak:              %d", peakQindxP_);
-      ps.println();
-      ps.printf("Accum. rain for Q max. peak (mm)%8.2f", peakQV_);
-      ps.println();
-      ps.printf("Accum. time for Q max. peak (h) %8.2f", peakQT_);
-      ps.println();
-      ps.printf("-----------------------------------------");
-      ps.println();
-      double sumQo = 0;
+      ps.printf("Minimum flowrates"); ps.println();
+      ps.printf("Observed (m3/s):              %8.2f", Qmo_); ps.println();
+      ps.printf("Estimated (m3/s):             %8.2f", Qmc_); ps.println();
+      ps.printf("-----------------------------------------"); ps.println();
+      ps.printf("Precipitation maximum intensity"); ps.println();
+      ps.printf("rain max. intensity:            %8.2f", peakP_); ps.println();
+      ps.printf("index for rain max. intensity:    %d", peakPindx_); ps.println();
+      ps.printf("Accumulated rain (mm)           %8.2f", peakPV_); ps.println();
+      ps.printf("Accumulated time (h)            %8.2f", peakPT_); ps.println();
+      ps.printf("local peak Q (m3/s)             %8.2f", peakPQ_); ps.println();
+      ps.printf("index local peak Q (m3/s):        %d", peakPindxQ_); ps.println();
+      ps.printf("Precipitation for Q with max. peak"); ps.println();
+      ps.printf("index for max. peak:              %d", peakQindxP_); ps.println();
+      ps.printf("Accum. rain for Q max. peak (mm)%8.2f", peakQV_); ps.println();
+      ps.printf("Accum. time for Q max. peak (h) %8.2f", peakQT_); ps.println();
+      ps.printf("-----------------------------------------"); ps.println();
+      double sumQo=0;
       for (int contador = 0; contador < Qo_.length; contador++) {
         sumQo += Qo_[contador];
       }
-      if (sumQo > 0.0) {
+      if (sumQo>0.0) {
         ps.printf("Calibration indicators");
         ps.println();
         double R2 = FunctionCDR2(Qo_, Qc_);
@@ -2856,7 +2807,7 @@ public class QomExe {
         ps.printf("Percent bias (PBIAS):                   %8.4f", PBIAS);
         ps.println();
         // NSE for Duration Curve
-        double DC = FunctionPBIAS(DurationQo_, DurationQe_);
+        double DC = FunctionPBIAS(DurationQo_,DurationQe_);
         ps.printf("Duration Curve: RE bwtween Qo and Qe:   %8.4f", DC);
         ps.println();
         double RSR = FunctionRSR(Qo_, Qc_);
@@ -2868,7 +2819,8 @@ public class QomExe {
         ps.printf("Relative weighted error between the sum");
         ps.println();
         ps.printf("of the maximum and minimum flows (ERQQ):%8.4f", ERQQ);
-      } else {
+      }
+      else{
         ps.printf("Pearson’s correlation coefficient (R):");
         ps.println();
         ps.printf("Determination coefficient (R2):");
@@ -2886,48 +2838,45 @@ public class QomExe {
 
       // volume for hydrograph observaded and hudrograph calculated
       ps = new PrintStream("Volumes.txt");
-      // ps.printf("Time(h)  Rain (mm)  Losses(mm) Excess(mm)  R(mm)  S(mm)   D(mm)"); ps.println();
-      for (int i = 0; i < Pconst_.length; i++) {
-        ps.printf(
-            "%10.3f %8.2f %8.2f %8.2f %8.2f %8.2f %8.3f %8.3f",
-            i * Δt_, Pconst_[i], (Pconst_[i] - P_[i]), P_[i], R_[i], S_[i], D_[i], EVT_[i]);
-        ps.println();
-      } // Next i
+      //ps.printf("Time(h)  Rain (mm)  Losses(mm) Excess(mm)  R(mm)  S(mm)   D(mm)   EVT(mm)"); ps.println();
+      for(int i=0; i<Pconst_.length; i++){
+        ps.printf("%10.3f %8.2f %8.2f %8.2f %8.2f %8.2f %8.3f %8.3f", i*Δt_,  Pconst_[i], (Pconst_[i]-P_[i]), P_[i], R_[i], S_[i], D_[i], EVT_[i]); ps.println();
+      } //Next i
       ps.close();
 
       // volume for hydrograph observaded and hudrograph calculated
       ps = new PrintStream("Volumes Total of Hydrograph.txt");
-      // ps.printf("Time(h)  Vo (m3)   Vc (m3)"); ps.println();
-      for (int i = 0; i < Vo_.length; i++) {
-        ps.format("%10.3f %10.6f %10.6f", i * Δt_, Vo_[i], Vc_[i]);
-        ps.println();
-      } // Next i
+      //ps.printf("Time(h)  Vo (m3)   Vc (m3)"); ps.println();
+      for(int i=0; i<Vo_.length; i++){
+        ps.format("%10.3f %10.6f %10.6f", i*Δt_, Vo_[i], Vc_[i]); ps.println();
+      } //Next i
       ps.close();
 
       System.out.println("Solution files saved");
       Toolkit.getDefaultToolkit().beep();
 
-    } // i
+    }// i
     catch (Exception ex) {
       System.out.println("ERROR in save file Hydrograph.txt: (" + ex.getMessage() + ")");
     }
   }
 
-  public static void Qom_save_OF_validation() {
+  public static void Qom_save_OF_validation(){
     // print solution hydrograph
     try {
-      // PrintStream ps = new PrintStream("Optimization.txt");
-      PrintStream ps = new PrintStream(file_ + ".OF");
+      //PrintStream ps = new PrintStream("Optimization.txt");
+      PrintStream ps = new PrintStream(file_+ ".OF");
       // f1 f2
-      for (int i = 0; i < maxLine_; i++) {
-        ps.format(fd_[i][0] + " " + fd_[i][1]);
-        ps.println();
-      } // Next i
+      for(int i=0; i<maxLine_; i++){
+        ps.format(fd_[i][0] + " " + fd_[i][1]); ps.println();
+      } //Next i
       ps.close();
       System.out.println("saved function objective derived");
       Toolkit.getDefaultToolkit().beep();
-    } catch (Exception ex) {
+    }
+    catch (Exception ex) {
       System.out.println("ERROR in save file SolutionsSort.txt: (" + ex.getMessage() + ")");
     }
   }
 }
+
