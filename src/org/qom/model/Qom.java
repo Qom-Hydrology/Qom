@@ -396,6 +396,7 @@ public class Qom {
       Qom_ReadProblems("Qom.txt");
     }
     // dataset read files
+    folder_ += file_ + "/" ;
     System.out.println("Problem file: " + folder_+ file_);
     Qom_ReadFileBasin(folder_+ file_ + ".basin");
     Qom_ReadLimitsVariable(folder_+ file_ + ".var");
